@@ -1,8 +1,11 @@
 from camera import Camera
 from PIL import Image
+from imager2 import Imager
+import PIL
+
+
 cam = Camera()
 
-while True:
-    img = Image.open("image.png")
-    print(img.getPixel((100,100)))
-    
+cam.update()
+
+print(cam.get_value.getpixel((50,50)))
