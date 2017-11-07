@@ -1,1 +1,11 @@
 .idea/
+.bash_history
+.bashrc
+.camera.py.swp
+.nano/
+.python_history
+.bash_logout
+.cache/
+.local/
+.profile
+.viminfo
