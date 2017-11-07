@@ -10,5 +10,6 @@
 .profile
 .viminfo
 .gitconfig
+.ssh/
 __pycache__/
 

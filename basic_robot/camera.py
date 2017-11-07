@@ -27,5 +27,4 @@ class Camera():
         self.value = Image.open('image.png').convert('RGB')
 
 # Just testing the camera in python
-
-# os.system('raspistill -t 1 -o image.png -w "' + str(200) + '" -h "' + str(200) + '" -rot "' + str(0) + '"')
+os.system('raspistill -t 1 -o image.png -w "' + str(200) + '" -h "' + str(200) + '" -rot "' + str(0) + '"')
