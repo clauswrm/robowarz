@@ -10,3 +10,5 @@
 .profile
 .viminfo
 .gitconfig
+__pycache__/
+
