@@ -12,3 +12,6 @@ class Clausinator():
 
     def exude(self):
         print("wololololololo")
+
+myFirstVariableLove = 69
+print("Incomprehensible, bitches!")
