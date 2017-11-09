@@ -32,4 +32,4 @@ m = Motob()
 while True:
     ZumoButton().wait_for_press()
     sleep(1)
-    m.rightSquare()
+    m.rightSquare(1)
