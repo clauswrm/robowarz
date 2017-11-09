@@ -24,11 +24,14 @@ class Motob:
         dur = degrees/110*self.speed
         self.m.left(speed = self.speed,dur = dur)
 
-    def forward(self,dur):
+    def forward(self,dur= None):
         self.m.forward(speed = self.speed,dur = dur)
 
-    def backward(self,dur):
+    def backward(self,dur= None):
         self.m.backward(speed = self.speed,dur = dur)
+
+    def stop(self):
+        self.m.stop()
 
     def rightSquare(self,dist):
         for i in range(0,4):
