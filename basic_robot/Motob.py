@@ -1,5 +1,7 @@
 from motors import Motors
 from time import sleep
+from zumo_button import ZumoButton
+
 class Motob:
     def __init__(self):
         self.m = Motors()
@@ -15,9 +17,10 @@ class Motob:
         self.m.left(dur = amount)
 
 m = Motob()
-
-for i in range(0,5):
-    m.turn_right(1)
-    sleep(1)
-    m.turn_left(1)
-    sleep(1)
+while True:
+    ZumoButton.wait_for_press()
+    for i in range(0,5):
+        m.turn_right(1)
+        sleep(1)
+        m.turn_left(1)
+        sleep(1)
