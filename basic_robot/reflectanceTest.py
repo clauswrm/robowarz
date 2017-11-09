@@ -6,19 +6,21 @@ from zumo_button import ZumoButton
 sens = reflectance_sensors.ReflectanceSensors()
 m = Motob()
 
+def adjustLine(arr):
+
+    if(arr[0] <0.1 or arr[1] < 0.1):
+        m.turn_left(5)
+
+    elif(arr[4]<0.1 or arr[5] <0.1):
+        m.turn_right(5)
+    m.forward
 while True:
     ZumoButton().wait_for_press()
-
     m.forward()
-
-    running = True
-    while running:
+    while True:
         arr = sens.update()
-        print(arr)
-        for x in arr:
-            if x < 0.1:
-                running = False
-
-    m.stop()
+        adjustLine(arr)
+        sleep(0.1)
+        
 
 
