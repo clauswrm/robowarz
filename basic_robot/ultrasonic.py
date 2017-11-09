@@ -45,6 +45,11 @@ class Ultrasonic():
             read_val = GPIO.input(self.echo_pin)
             signaloff = time.time()
 
+        if read_val != 0:
+            print("VI FANT NOE!")
+        else:
+            print("Vi fant ingenting")
+
         signalon = signaloff
         # Finner saa den tiden det siste signalet kommer inn paa echo_pin
         while read_val == 1:
