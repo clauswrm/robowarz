@@ -28,7 +28,7 @@ class BBCON:
         Updates all sensobs
         Updates all behaviors
         Invoke arbitrator
-        Upade motobs
+        Updade motobs
         Wait
         Reset sensobs
         """
