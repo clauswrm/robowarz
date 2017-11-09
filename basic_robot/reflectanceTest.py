@@ -1,4 +1,4 @@
-from  basic_robot import reflectance_sensors
+import reflectance_sensors
 from time import sleep
 
 sens = reflectance_sensors.ReflectanceSensors(auto_calibrate=True)
