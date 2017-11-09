@@ -12,5 +12,6 @@ m.stop()
 
 while True:
     ultra.reset()
-    print(ultra.sensor_get_value())
+    ultra.update()
+    print("Dist: " + str(ultra.get_value()))
     sleep(1)
