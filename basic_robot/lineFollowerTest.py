@@ -32,7 +32,7 @@ while True:
         elif error > 0:
             m.turn_left(error * 20)
         else:
-            m.turn_right(error * 20)
+            m.turn_right(-error * 20)
         print(error)
     m.stop()
 
