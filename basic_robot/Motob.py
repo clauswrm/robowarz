@@ -18,7 +18,7 @@ class Motob:
 
 m = Motob()
 while True:
-    ZumoButton.wait_for_press()
+    ZumoButton().wait_for_press()
     for i in range(0,5):
         m.turn_right(1)
         sleep(1)
