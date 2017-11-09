@@ -9,6 +9,7 @@ cam = Camera()
 ultra = Ultrasonic()
 m = Motors()
 m.stop()
+
 while True:
     ultra.reset()
     print(ultra.sensor_get_value())
