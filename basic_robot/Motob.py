@@ -21,7 +21,7 @@ class Motob:
     def turn_left(self,degrees):
         #Denne formelen er basert på speed = 0.5. Left turning virker noe kjappere enn right turning.
         #Derav kortere turn duration
-        dur = degrees/105*self.speed
+        dur = degrees/110*self.speed
         self.m.left(speed = self.speed,dur = dur)
 
     def forward(self,dur):
@@ -49,3 +49,5 @@ if __name__ == '__main__':
         ZumoButton().wait_for_press()
         sleep(1)
         m.leftSquare(1)
+        sleep(1)
+        m.rightSquare(1)
