@@ -5,7 +5,7 @@ from zumo_button import ZumoButton
 class Motob:
     def __init__(self):
         self.m = Motors()
-        self.speed = 1
+        self.speed = 0.5
 
 
     def turn_right(self,amount):
@@ -21,7 +21,7 @@ m = Motob()
 while True:
     ZumoButton().wait_for_press()
     for i in range(0,5):
-        m.turn_right(1)
         sleep(1)
-        m.turn_left(1)
+        m.turn_right(0.5)
         sleep(1)
+        m.turn_left(0.5)
