@@ -14,14 +14,14 @@ class Motob:
         #NOTE: Operasjonen varer i "amount" sekunder.
 
         #Denne formelen er basert på speed = 0.5:
-        dur = degrees/10*self.speed
+        dur = degrees/100*self.speed
 
         self.m.right(speed = self.speed,dur=dur)
 
     def turn_left(self,degrees):
         #Denne formelen er basert på speed = 0.5. Left turning virker noe kjappere enn right turning.
         #Derav kortere turn duration
-        dur = degrees/12*self.speed
+        dur = degrees/120*self.speed
         self.m.left(speed = self.speed,dur = dur)
 
     def forward(self,dur):
