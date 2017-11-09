@@ -21,6 +21,8 @@ class Ultrasonic():
         self.value = None
 
     def sensor_get_value(self):
+        sTime = time.time()
+
         GPIO.setup(self.trig_pin, GPIO.OUT)
         GPIO.setup(self.echo_pin, GPIO.IN)
         self.send_activation_pulse()
@@ -40,7 +42,6 @@ class Ultrasonic():
         signaloff = signaloff_start
         # signalet timer ut dersom det tar mer en 0.5 s, da annsees det som tapt og vi prover igjen
         while read_val == 0 and signaloff - signaloff_start < 0.5:
-            print("Signalet gikk tapt")
             read_val = GPIO.input(self.echo_pin)
             signaloff = time.time()
 
@@ -48,11 +49,13 @@ class Ultrasonic():
         # Finner saa den tiden det siste signalet kommer inn paa echo_pin
         while read_val == 1:
             read_val = GPIO.input(self.echo_pin)
-            signalon = time.time() # Kan flytte denne ut av loopen dersom det skaper delay og unoyaktighet
 
+
+        signalon = time.time() # Kan flytte denne ut av loopen dersom det skaper delay og unoyaktighet
+        
         # Den kalkulerte avstanden
         distance = self.compute_distance(signalon, signaloff)
-
+        print(time.time()-sTime)
         # Returnerer distanset til objektet forran sensoren i cm
         return distance
 
