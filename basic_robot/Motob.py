@@ -21,10 +21,10 @@ class Motob:
         self.m.forward(speed = self.speed,dur = dur)
 
     def rightSquare(self,dist):
-        for i in range(0,4):
+        for i in range(0,45):
             self.forward(dist)
             sleep(0.25)
-            self.turn_right(0.4)
+            self.turn_right(0.45)
             sleep(0.25)
 
 
