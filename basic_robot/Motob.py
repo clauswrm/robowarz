@@ -44,6 +44,16 @@ class Motob:
             sleep(0.25)
 
 
+    def backAndForth(self,dist):
+        self.forward(dist)
+        sleep(0.25)
+        self.turn_right(180)
+        sleep(0.25)
+        self.forward(dist)
+        sleep(0.25)
+        self.turn_left(180)
+        sleep(0.25)
+
 
 if __name__ == '__main__':
 
@@ -51,6 +61,5 @@ if __name__ == '__main__':
     while True:
         ZumoButton().wait_for_press()
         sleep(1)
-        m.leftSquare(1)
-        sleep(1)
-        m.rightSquare(1)
+        m.backAndForth(1)
+
