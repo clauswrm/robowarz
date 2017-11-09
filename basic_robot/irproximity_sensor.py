@@ -1,4 +1,5 @@
 import RPi.GPIO as GPIO
+import time
 
 
 class IRProximitySensor:
@@ -29,3 +30,9 @@ class IRProximitySensor:
         # Invert the values, so that True means something is close
         return [not read_val_1, not read_val_2]
 
+
+sensor = IRProximitySensor()
+
+while True:
+    print(sensor.update())
+    time.sleep(1)
