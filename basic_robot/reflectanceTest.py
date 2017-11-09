@@ -21,6 +21,6 @@ while True:
         arr = sens.update()
         adjustLine(arr)
         sleep(0.1)
-        
+
 
 
