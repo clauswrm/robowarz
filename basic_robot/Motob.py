@@ -22,8 +22,11 @@ class Motob:
 
     def rightSquare(self,dist):
         for i in range(0,4):
-            self.turn_right(0.5)
             self.forward(dist)
+            sleep(0.25)
+            self.turn_right(0.4)
+            sleep(0.25)
+
 
 
 
