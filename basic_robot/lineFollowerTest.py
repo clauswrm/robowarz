@@ -6,6 +6,8 @@ from time import sleep
 d = 100
 m = Motob()
 
+#TODO: Uten å bruke motorer, få den til å printe ut antall grader den vil svinge i hver retning ut i fra senorverdier
+
 def calculate_error(sens_values):
     outValue = 0
     outValue += sens_values[0]
