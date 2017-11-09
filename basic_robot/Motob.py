@@ -27,6 +27,9 @@ class Motob:
     def forward(self,dur):
         self.m.forward(speed = self.speed,dur = dur)
 
+    def backward(self,dur):
+        self.m.backward(speed = self.speed,dur = dur)
+
     def rightSquare(self,dist):
         for i in range(0,4):
             self.forward(dist)
