@@ -3,7 +3,7 @@ import reflectance_sensors
 from zumo_button import ZumoButton
 from time import sleep
 
-d = 20
+d = 100
 m = Motob()
 
 def calculate_error(sens_values):
@@ -33,7 +33,7 @@ while True:
             m.turn_left(error * 20)
         else:
             m.turn_right(error * 20)
-        sleep(0.2)
+        print(error)
     m.stop()
 
 
