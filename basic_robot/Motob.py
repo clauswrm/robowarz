@@ -37,7 +37,7 @@ class Motob:
         for i in range(0,4):
             self.forward(dist)
             sleep(0.25)
-            self.turn_right(90)
+            self.turn_left(90)
             sleep(0.25)
 
 
