@@ -17,11 +17,19 @@ class Motob:
     def turn_left(self,amount):
         self.m.left(speed = self.speed,dur = amount)
 
+    def forward(self,dur):
+        self.m.forward(speed = self.speed,dur = dur)
+
+    def rightSquare(self,dist):
+        for i in range(0,4):
+            self.turn_right(0.5)
+            self.forward(dist)
+
+
+
+
 m = Motob()
 while True:
     ZumoButton().wait_for_press()
-    for i in range(0,5):
-        sleep(1)
-        m.turn_right(0.5)
-        sleep(1)
-        m.turn_left(0.5)
+    sleep(1)
+    m.rightSquare()
