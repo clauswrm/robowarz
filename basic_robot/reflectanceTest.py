@@ -3,7 +3,7 @@ from time import sleep
 import Motob
 
 sens = reflectance_sensors.ReflectanceSensors()
-motor = Motob()
+motor = Motob.Motob()
 
 for i in range(5):
     for j in range(10):
