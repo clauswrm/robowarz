@@ -54,8 +54,6 @@ class Ultrasonic():
         signalon = time.time() # Kan flytte denne ut av loopen dersom det skaper delay og unoyaktighet
 
         # Den kalkulerte avstanden
-
-        print("Time: "+ str(signaloff-signalon))
         distance = self.compute_distance(signalon, signaloff)
         print("totalruntime: "+str(time.time()-sTime))
         # Returnerer distanset til objektet forran sensoren i cm
