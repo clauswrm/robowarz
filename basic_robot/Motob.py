@@ -61,5 +61,7 @@ if __name__ == '__main__':
     while True:
         ZumoButton().wait_for_press()
         sleep(1)
-        m.backAndForth(1)
+        m.rightSquare(1)
+        sleep(1)
+        m.leftSquare(1)
 
