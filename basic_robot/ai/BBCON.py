@@ -1,4 +1,4 @@
-from basic_robot import Arbitrator
+from basic_robot.ai import Arbitrator
 
 
 class BBCON:
