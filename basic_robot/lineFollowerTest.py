@@ -1,11 +1,12 @@
 from actuation.Motob import Motob
-import sensobs.reflectance_sensors
+from sensobs.reflectance_sensors import ReflectanceSensors
 from sensobs.zumo_button import ZumoButton
-from time import sleep
+from time import sleep,time
+from math import sqrt
 
 d = 100
 m = Motob()
-
+m.stop()
 #TODO: Uten å bruke motorer, få den til å printe ut antall grader den vil svinge i hver retning ut i fra senorverdier
 
 def calculate_error(sens_values):
@@ -19,7 +20,7 @@ def calculate_error(sens_values):
     return outValue
 
 
-sens = reflectance_sensors.ReflectanceSensors()
+sens = ReflectanceSensors()
 value = []
 
 while True:
@@ -28,18 +29,23 @@ while True:
     m.forward()
 
     running = True
-    while running:
-        value = sens.update()
-        error = calculate_error(value)
-        if -0.1 < error < 0.1:
-            pass
-        elif error > 0:
-            #m.turn_left(error * 20)
-            pass
-        else:
-            #m.turn_right(-error * 20)
-            pass
-        print(error)
-    m.stop()
+
+    try:
+        while running:
+            value = sens.update()
+            print("Value: "+str(value))
+            error = calculate_error(value)
+            print(str(time())+" : "+str(error))
+            sleep(0.1)
+            m.stop()
+            if error > 0.1:
+                m.turn_left(error*20)
+                pass
+            elif error <-0.1:
+                m.turn_right(-error*20)
+                pass
+            m.forward()
+    except:
+        m.stop()
 
 
