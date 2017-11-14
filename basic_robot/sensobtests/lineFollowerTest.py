@@ -1,6 +1,6 @@
-from basic_robot.Motob import Motob
-import reflectance_sensors
-from basic_robot.zumo_button import ZumoButton
+from sensobs.Motob import Motob
+import sensobs.reflectance_sensors
+from sensobs.zumo_button import ZumoButton
 from time import sleep
 
 d = 100
