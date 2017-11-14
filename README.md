@@ -20,6 +20,5 @@ Text to be written
 
 More text to be written
 
-
 [bbrc]: https://raw.githubusercontent.com/clauswrm/robowarz/master/bbr.png
 "A typical example of behavior-based robotic control"
