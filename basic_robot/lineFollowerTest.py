@@ -54,6 +54,13 @@ value = []
 while True:
     ZumoButton().wait_for_press()
 
+    m.turn_right(190)
+    sleep(2)
+    m.turn_left(190)
+    sleep(2)
+    print (sum(sens.update()))
+    ZumoButton().wait_for_press()
+
     m.forward()
     running = True
     try:
