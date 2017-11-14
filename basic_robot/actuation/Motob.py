@@ -10,7 +10,7 @@ class Motob:
     """
     def __init__(self, motor1, motor2)
         self.motors = {'left' = motor1, right = 'motor2'}
-        self.value = None  #A holder of the most recent motor recommendation sent to the motob
+        self.value = None  #A holder of the most recent motor recommendation sent to the motob.
     """
 
     def update(self):
