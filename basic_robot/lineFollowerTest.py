@@ -44,7 +44,8 @@ while True:
     while True:
         val = sens.update()
         check_for_junction(val)
-    ZumoButton().wait_for_press()
+        ZumoButton().wait_for_press()
+        m.turn_right(90)
 
     m.forward()
 
