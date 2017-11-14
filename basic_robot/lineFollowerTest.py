@@ -20,7 +20,10 @@ def calculate_error(sens_values):
     return outValue
 
 def check_for_junction(sens_values):
-    #TODO: Etabler en eller annen funksjon av sensorerdiene
+    #TODO: Etabler en eller annen funksjon av sensorverdiene
+    k = 100
+    if sum(sens_values)>k:
+        return True
 
 
 sens = ReflectanceSensors()
