@@ -19,6 +19,9 @@ def calculate_error(sens_values):
     outValue -= sens_values[5]
     return outValue
 
+def check_for_junction(sens_values):
+    #TODO: Etabler en eller annen funksjon av sensorerdiene
+
 
 sens = ReflectanceSensors()
 value = []
@@ -32,16 +35,17 @@ while True:
 
     try:
         while running:
+            x =
             value = sens.update()
             print("Value: "+str(value))
             error = calculate_error(value)
             print(str(time())+" : "+str(error))
             sleep(0.1)
             m.stop()
-            if error > 0.1:
+            if error > 0.5:
                 m.turn_right(error*20)
                 pass
-            elif error <-0.1:
+            elif error <-0.05:
                 m.turn_left(-error*20)
                 pass
             m.forward()
