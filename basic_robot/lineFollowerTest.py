@@ -26,7 +26,9 @@ def check_for_junction(sens_values):
     # TODO: Etabler en eller annen funksjon av sensorverdiene
     # denne kalibreringen fungerer trolig kun oppå bordene
     k = 1.4
-    if sum(sens_values) < k:
+    x = sum(sens_values)
+    if x < k:
+        print(sens_values)
         return True
     return False
 
@@ -52,7 +54,8 @@ while True:
                 print("NODE DETECTED")
                 m.turn_right(90)
                 error = calculate_error(sens.update())
-
+                m.stop()
+                sleep(1)
 
             if error > 0.5:
                 m.turn_right(error * 20)
