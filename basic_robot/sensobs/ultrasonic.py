@@ -5,8 +5,8 @@ class Ultrasonic():
 
     def __init__(self):
         self.value = None
-        self.trig_pin = 32#26
-        self.echo_pin = 31#11
+        self.trig_pin = 26 #32
+        self.echo_pin = 11 #31
         self.setup()
 
     def setup(self):

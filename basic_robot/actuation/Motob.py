@@ -7,6 +7,20 @@ class Motob:
         self.m = Motors()
         self.speed = 0.5
 
+    """
+    def __init__(self, motor1, motor2)
+        self.motors = {'left' = motor1, right = 'motor2'}
+        self.value = None  #A holder of the most recent motor recommendation sent to the motob
+    """
+
+    def update(self):
+        """ Receive a new motor recommendation, load it into the value slot, and operationalize it """
+
+    def operationalize(self):
+        """
+        Convert a motor recommendation into one or more motor settings, which are sent to
+        the corresponding motor(s)
+        """
 
     def turn_right(self,degrees):
         #TODO: regne på forhold mellom speed og dur
