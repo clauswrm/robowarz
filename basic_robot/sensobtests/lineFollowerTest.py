@@ -1,5 +1,5 @@
 from actuation.Motob import Motob
-import sensobs.reflectance_sensors
+from sensobs.reflectance_sensors import ReflectanceSensors
 from sensobs.zumo_button import ZumoButton
 from time import sleep
 
@@ -19,7 +19,7 @@ def calculate_error(sens_values):
     return outValue
 
 
-sens = reflectance_sensors.ReflectanceSensors()
+sens = ReflectanceSensors()
 value = []
 
 while True:
