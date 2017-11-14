@@ -20,7 +20,7 @@ class BBCON:
         self.behaviors = []
         self.active_behaviors = []
         self.sensobs = []
-        self.motobs = motob
+        self.motob = motob
         self.arbitrator = Arbitrator(bbcon=self)
 
     def add_behavior(self, behavior: Behavior):
@@ -55,9 +55,8 @@ class BBCON:
             sensob.update()
         for behavior in self.behaviors:
             behavior.update()
-        self.arbitrator.choose_action()
-        for motob in self.motobs:
-            motob.update()
+        chosen_behavior = self.arbitrator.choose_action()
+        self.motob.update(chosen_behavior)
         sleep(0.2)
         for sensob in self.sensobs:
             sensob.reset()

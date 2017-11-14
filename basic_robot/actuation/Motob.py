@@ -9,7 +9,7 @@ class Motob:
         self.value = None  # A holder of the most recent motor recommendation sent to the motob.
         self.speed = 0.5
 
-    def update(self):
+    def update(self, behavior):
         """ Receive a new motor recommendation, load it into the value slot, and operationalize it """
 
     def operationalize(self):
