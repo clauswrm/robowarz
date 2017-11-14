@@ -78,7 +78,7 @@ print(return_list)
 
 def main():
     cam = Camobs()
-    cam.match_degree()
+    print(cam.match_degree())
 
 
 main()
