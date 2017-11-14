@@ -22,13 +22,24 @@ def calculate_error(sens_values):
     return outValue
 
 
+def make_adjustment(error):
+
+    if error > 0.1:
+        m.turn_right(error * 20)
+    elif error < -0.1:
+        m.turn_left(-error * 20)
+    m.forward()
+
+
+
 def check_for_junction(sens_values):
     # TODO: Etabler en eller annen funksjon av sensorverdiene
     # denne kalibreringen fungerer trolig kun oppå bordene
     k = 1.4
     x = sum(sens_values)
+    print(sens_values)
+    print(x)
     if x < k:
-        print(sens_values)
         return True
     return False
 
@@ -36,33 +47,23 @@ def check_for_junction(sens_values):
 sens = ReflectanceSensors()
 value = []
 
+
 while True:
-    ZumoButton().wait_for_press()
-
     m.forward()
-
     running = True
-
     try:
         while running:
 
-            sleep(0.1)
+            sleep(0.02)
             value = sens.update()
             error = calculate_error(value)
             m.stop()
             if check_for_junction(value):
-                print("NODE DETECTED")
-                m.turn_right(90)
+                m.turn_right(110)#bør nok oftest være 90 grader
                 error = calculate_error(sens.update())
                 m.stop()
                 sleep(1)
 
-            if error > 0.5:
-                m.turn_right(error * 20)
-                pass
-            elif error < -0.05:
-                m.turn_left(-error * 20)
-                pass
-            m.forward()
+            make_adjustment(error)
     except:
         m.stop()
