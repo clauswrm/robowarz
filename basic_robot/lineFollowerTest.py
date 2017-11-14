@@ -25,7 +25,7 @@ value = []
 while True:
     ZumoButton().wait_for_press()
 
-    m.stop()
+    m.forward()
 
     running = True
     while running:
@@ -37,10 +37,10 @@ while True:
         if -0.1 < error < 0.1:
             pass
         elif error > 0:
-            #m.turn_left(error * 20)
+            m.turn_left(error * 20)
             pass
         else:
-            #m.turn_right(-error * 20)
+            m.turn_right(-error * 20)
             pass
     #m.stop()
 
