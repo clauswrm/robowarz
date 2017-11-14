@@ -1,6 +1,6 @@
-from motors import Motors
+from actuation.motors import Motors
 from time import sleep
-from zumo_button import ZumoButton
+from sensobs.zumo_button import ZumoButton
 
 class Motob:
     def __init__(self):
