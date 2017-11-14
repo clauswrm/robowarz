@@ -1,5 +1,5 @@
 
-from actuation import Motob
+from actuation.Motob import Motob
 
 m = Motob()
 m.stop()
