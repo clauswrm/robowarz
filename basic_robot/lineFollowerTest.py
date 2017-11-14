@@ -54,7 +54,7 @@ value = []
 while True:
     ZumoButton().wait_for_press()
 
-    while true:
+    while True:
         x = int(input("Input: "))
         m.turn_right(x)
     ZumoButton().wait_for_press()
