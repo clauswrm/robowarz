@@ -1,5 +1,5 @@
-from ai.BBCON import BBCON
-from ai.Behaviors import Behavior
+from basic_robot.ai.BBCON import BBCON
+from basic_robot.ai.Behaviors import Behavior
 from random import random
 
 

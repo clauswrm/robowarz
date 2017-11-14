@@ -1,13 +1,22 @@
-from basic_robot.ai import Arbitrator
+from basic_robot.ai.Arbitrator import Arbitrator
 from time import sleep
 
 class BBCON:
+    """
+    BBCON (Behavior-Based Controller)
+
+    At each timestep, the robot should call its BBCON to determine its next move.
+    Has controll over all behaviors, sensobs and motobs and updates them accordingly
+    by running the run_one_timestep method.
+
+    Should only require one instance (per robot).
+    """
     def __init__(self):
         self.behaviors = []
         self.active_behaviors = []
         self.sensobs = []
         self.motobs = []
-        self.arbitrator = Arbitrator()
+        self.arbitrator = Arbitrator(bbcon=self)
 
     def add_behavior(self, behavior):
         self.behaviors.append(behavior)

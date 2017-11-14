@@ -1,5 +1,5 @@
-from ai.BBCON import BBCON
-from sensobs.Sensob import Sensob
+from basic_robot.ai.BBCON import BBCON
+from basic_robot.sensobs.Sensob import Sensob
 
 
 class Behavior:
