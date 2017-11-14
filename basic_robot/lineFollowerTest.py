@@ -66,16 +66,19 @@ while True:
             if check_for_junction(value)==1:
                 m.turn_right(95)#bør nok oftest være 90 grader
                 m.stop()
-                sleep(1)
+                sleep(0.25)
+                value = sens.update()
+                error = calculate_error(value)
 
             elif check_for_junction(value)==2:
                 m.turn_right(190)
                 m.stop()
-                sleep(1)
-
-            error = calculate_error(sens.update())
+                sleep(0.25)
+                value = sens.update()
+                error = calculate_error(value)
 
 
             make_adjustment(error)
+
     except:
         m.stop()
