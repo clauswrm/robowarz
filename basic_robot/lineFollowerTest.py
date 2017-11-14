@@ -46,7 +46,6 @@ while True:
                 pass
             m.forward()
     except:
-        pass
-    #m.stop()
+        m.stop()
 
 
