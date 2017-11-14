@@ -30,6 +30,7 @@ while True:
     running = True
     while running:
         value = sens.update()
+        print("Value: "+str(value))
         error = calculate_error(value)
         print(str(time())+" : "+str(error))
         if -0.1 < error < 0.1:
