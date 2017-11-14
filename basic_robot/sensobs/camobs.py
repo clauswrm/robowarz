@@ -19,13 +19,13 @@ class Camob:
 
     def get_avg_col(self):
         self.c.update()
-        im = self.c.value()
+        img = self.c.value
 
         return_list = [0, 0, 0]
         for i in range(self.c.img_height):
             for j in range(self.c.img_width):
                 for k in range(0, 3):
-                    return_list[k] += im.getpixel((j, i))[k]
+                    return_list[k] += img.getpixel((j, i))[k]
         for l in range(0, 3):
             return_list[l] = return_list[l] // (self.c.img_height * self.c.img_width)
         return return_list
@@ -42,8 +42,8 @@ class Camob:
         if True:
             pass
 
-'''
-im = Image.open('image.jpg')
+#'''
+im = Image.open('image.jpg').convert('RGB')
 print(im.getpixel((1, 1)))
 
 return_list = [0, 0, 0]
@@ -54,7 +54,7 @@ for i in range(0, 96):
 for l in range(0, 3):
     return_list[l] = return_list[l] // (96*128)
 print(return_list)
-'''
+#'''
 
 def main():
     cam = Camob()
