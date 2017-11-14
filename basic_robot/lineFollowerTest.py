@@ -37,10 +37,10 @@ while True:
         sleep(0.1)
         m.stop()
         if error > 0.1:
-            m.turn_left()
+            m.turn_left(error*20)
             pass
         elif error <-0.1:
-            m.turn_right()
+            m.turn_right(error*20)
             pass
         m.forward()
     #m.stop()
