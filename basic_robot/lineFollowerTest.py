@@ -6,7 +6,7 @@ from math import sqrt
 
 d = 100
 m = Motob()
-
+m.stop()
 #TODO: Uten å bruke motorer, få den til å printe ut antall grader den vil svinge i hver retning ut i fra senorverdier
 
 def calculate_error(sens_values):
@@ -39,10 +39,10 @@ while True:
             sleep(0.1)
             m.stop()
             if error > 0.1:
-                m.turn_left(error*10)
+                m.turn_left(error*20)
                 pass
             elif error <-0.1:
-                m.turn_right(-error*10)
+                m.turn_right(-error*20)
                 pass
             m.forward()
     except:
