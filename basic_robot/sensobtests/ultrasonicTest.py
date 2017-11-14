@@ -1,6 +1,6 @@
-from camera import Camera
-from ultrasonic import Ultrasonic
-from motors import Motors
+from basic_robot.sensobs.camera import Camera
+from basic_robot.sensobs.ultrasonic import Ultrasonic
+from basic_robot.actuation.motors import Motors
 from PIL import Image
 from imager2 import Imager
 import PIL
