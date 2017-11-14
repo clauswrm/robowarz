@@ -58,6 +58,9 @@ while True:
     sleep(2)
     m.turn_left(190)
     sleep(2)
+    m.turn_right(90)
+    sleep(2)
+    m.turn_left(90)
     print (sum(sens.update()))
     ZumoButton().wait_for_press()
 
