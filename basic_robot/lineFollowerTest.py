@@ -1,7 +1,7 @@
 from actuation.Motob import Motob
 from sensobs.reflectance_sensors import ReflectanceSensors
 from sensobs.zumo_button import ZumoButton
-from time import sleep
+from time import sleep,time
 
 d = 100
 m = Motob()
@@ -31,6 +31,7 @@ while True:
     while running:
         value = sens.update()
         error = calculate_error(value)
+        print(str(time())+" : "+str(error))
         if -0.1 < error < 0.1:
             pass
         elif error > 0:
@@ -39,7 +40,6 @@ while True:
         else:
             #m.turn_right(-error * 20)
             pass
-        print(error)
     m.stop()
 
 
