@@ -36,7 +36,7 @@ def check_for_junction(sens_values):
     # TODO: Etabler en eller annen funksjon av sensorverdiene
     # denne kalibreringen fungerer trolig kun oppå bordene
     nodeThreshold = 1.4
-    leafThreshold = 4
+    leafThreshold = 3.5
     x = sum(sens_values)
     print(sens_values)
     print(x)
@@ -52,6 +52,8 @@ value = []
 
 
 while True:
+    ZumoButton.wait_for_press()
+
     m.forward()
     running = True
     try:
