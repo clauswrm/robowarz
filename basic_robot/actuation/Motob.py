@@ -75,7 +75,4 @@ if __name__ == '__main__':
     m = Motob()
     while True:
         ZumoButton().wait_for_press()
-        sleep(1)
-        m.rightSquare(1)
-        sleep(1)
-        m.leftSquare(1)
+        m.turn_right(90)
