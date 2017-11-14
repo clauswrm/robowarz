@@ -1,11 +1,16 @@
 from ai.BBCON import BBCON
 from actuation.Motob import Motob
-from actuation.motors import Motors
 from sensobs.zumo_button import ZumoButton
 from time import sleep
 
 def main():
-    bbcon = BBCON(motors=Motob())
+    """
+    Creates a BBCON with motob.
+    Initializes the behaviors with sensobs
+    Adds the behaviors to the BBCON
+    Runs the BBCON indefinetly
+    """
+    bbcon = BBCON(motob=Motob())
     bbcon.add_behavior()
 
     ZumoButton().wait_for_press()
