@@ -1,4 +1,4 @@
-from sensobs.Motob import Motob
+from actuation.Motob import Motob
 import sensobs.reflectance_sensors
 from sensobs.zumo_button import ZumoButton
 from time import sleep
