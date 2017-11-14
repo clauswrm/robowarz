@@ -1,5 +1,5 @@
 from basic_robot.ai import Arbitrator
-
+from time import sleep
 
 class BBCON:
     def __init__(self):
@@ -9,7 +9,7 @@ class BBCON:
         self.motobs = []
         self.arbitrator = Arbitrator()
 
-    def add_behaivor(self, behavior):
+    def add_behavior(self, behavior):
         self.behaviors.append(behavior)
 
     def add_sensob(self, sensob):
@@ -25,10 +25,21 @@ class BBCON:
 
     def run_one_timestep(self):
         """
-        Updates all sensobs
-        Updates all behaviors
-        Invoke arbitrator
-        Update motobs
-        Wait
-        Reset sensobs
+        1) Updates all sensobs
+        2) Updates all behaviors
+        3) Invoke arbitrator
+        4) Update motobs
+        5) Wait
+        6) Reset sensobs
         """
+
+        for sensob in self.sensobs:
+            sensob.update()
+        for behavior in self.behaviors:
+            behavior.update()
+        self.arbitrator.choose_action()
+        for motob in self.motobs:
+            motob.update()
+        sleep(0.2)
+        for sensob in self.sensobs:
+            sensob.reset()
