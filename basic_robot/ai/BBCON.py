@@ -16,11 +16,11 @@ class BBCON:
     Should only require one instance (per robot).
     """
 
-    def __init__(self, *motobs: Motob):
+    def __init__(self, motob: Motob):
         self.behaviors = []
         self.active_behaviors = []
         self.sensobs = []
-        self.motobs = [motob for motob in motobs]
+        self.motobs = motob
         self.arbitrator = Arbitrator(bbcon=self)
 
     def add_behavior(self, behavior: Behavior):
