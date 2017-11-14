@@ -49,9 +49,10 @@ while True:
             error = calculate_error(value)
             m.stop()
             if check_for_junction(value):
+                print("NODE DETECTED")
                 m.turn_right(90)
                 error = calculate_error(sens.update())
-                
+
 
             if error > 0.5:
                 m.turn_right(error * 20)
