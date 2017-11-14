@@ -52,7 +52,7 @@ value = []
 
 
 while True:
-    ZumoButton.wait_for_press()
+    ZumoButton().wait_for_press()
 
     m.forward()
     running = True
