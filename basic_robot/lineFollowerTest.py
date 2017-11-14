@@ -29,6 +29,7 @@ while True:
 
     running = True
     while running:
+        sleep(1)
         value = sens.update()
         print("Value: "+str(value))
         error = calculate_error(value)
