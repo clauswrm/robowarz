@@ -36,7 +36,7 @@ while True:
         error = calculate_error(value)
         print(str(time())+" : "+str(error))
         if -0.1 < error < 0.1:
-            m.forward()
+            m.forward(0.2)
         elif error > 0:
             m.turn_left(error * 20)
             pass
