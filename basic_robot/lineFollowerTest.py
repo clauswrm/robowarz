@@ -22,6 +22,16 @@ def calculate_error(sens_values):
     return outValue
 
 
+def make_adjustment(error):
+
+    if error > 0.1:
+        m.turn_right(error * 20)
+    elif error < -0.1:
+        m.turn_left(-error * 20)
+    m.forward()
+
+
+
 def check_for_junction(sens_values):
     # TODO: Etabler en eller annen funksjon av sensorverdiene
     # denne kalibreringen fungerer trolig kun oppå bordene
@@ -41,11 +51,6 @@ value = []
 
 
 while True:
-    while True:
-        val = sens.update()
-        check_for_junction(val)
-        ZumoButton().wait_for_press()
-        m.turn_right(90)
 
     m.forward()
 
@@ -59,17 +64,11 @@ while True:
             error = calculate_error(value)
             m.stop()
             if check_for_junction(value):
-                m.turn_right(90)
+                m.turn_right(110)#bør nok oftest være 90 grader
                 error = calculate_error(sens.update())
                 m.stop()
                 sleep(1)
 
-            if error > 0.5:
-                m.turn_right(error * 20)
-                pass
-            elif error < -0.05:
-                m.turn_left(-error * 20)
-                pass
-            m.forward()
+            make_adjustment(error)
     except:
         m.stop()
