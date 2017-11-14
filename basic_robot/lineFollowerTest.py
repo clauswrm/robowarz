@@ -29,13 +29,14 @@ while True:
 
     running = True
     while running:
+        m.stop()
         sleep(1)
         value = sens.update()
         print("Value: "+str(value))
         error = calculate_error(value)
         print(str(time())+" : "+str(error))
         if -0.1 < error < 0.1:
-            pass
+            m.forward()
         elif error > 0:
             m.turn_left(error * 20)
             pass
