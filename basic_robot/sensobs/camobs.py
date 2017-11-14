@@ -55,3 +55,5 @@ print(return_list)
 def main():
     cam = Camob
     cam.print_color_avg()
+
+main()
