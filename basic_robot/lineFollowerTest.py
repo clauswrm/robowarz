@@ -43,6 +43,7 @@ value = []
 while True:
     while True:
         val = sens.update()
+        check_for_junction(val)
     ZumoButton().wait_for_press()
 
     m.forward()
