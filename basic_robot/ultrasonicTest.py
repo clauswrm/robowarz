@@ -2,7 +2,6 @@ from sensobs.camera import Camera
 from sensobs.ultrasonic import Ultrasonic
 from actuation.motors import Motors
 from PIL import Image
-from imager2 import Imager
 import PIL
 from time import sleep
 cam = Camera()
