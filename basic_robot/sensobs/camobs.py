@@ -15,7 +15,8 @@ class Camob:
     ''' returnerer deretter gjenomsnittet av alle verdiene'''
 
     def get_avg_col(self):
-        im = self.c.sensor_get_value
+        self.sensor_get_value
+        im = self.c.value
 
         return_list = [0, 0, 0]
         for i in range(self.c.img_height):
