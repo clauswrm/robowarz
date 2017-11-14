@@ -18,7 +18,7 @@ class Camob:
     ''' returnerer deretter gjenomsnittet av alle verdiene'''
 
     def get_avg_col(self):
-        self.c.sensor_get_value()
+        self.c.update()
         im = self.c.value()
 
         return_list = [0, 0, 0]
@@ -34,7 +34,7 @@ class Camob:
         '''printer ut gjennomsnittsfargen, brukes til å avgjøre div thresholds'''
         while True:
             print(self.get_avg_col())
-            self.c.update
+            self.c.update()
             sleep(1)
 
     def find_red_circle(self):
