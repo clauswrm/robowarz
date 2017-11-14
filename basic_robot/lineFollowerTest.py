@@ -25,7 +25,7 @@ value = []
 while True:
     ZumoButton().wait_for_press()
 
-    #m.forward()
+    m.stop()
 
     running = True
     while running:
