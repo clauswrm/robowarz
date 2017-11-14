@@ -9,14 +9,22 @@ class Motob:
         self.value = None  # A holder of the most recent motor recommendation sent to the motob.
         self.speed = 0.5
 
-    def update(self):
-        """ Receive a new motor recommendation, load it into the value slot, and operationalize it """
+        self.execute_setting = {
+            "stop": self.stop
+        }
 
-    def operationalize(self):
+    def update(self, recommendations):
+        """ Receive a new motor recommendation, load it into the value slot, and operationalize it """
+        for action in recommendations:
+            self.value = action
+            self.operationalize(self.value)
+
+    def operationalize(self, value):
         """
         Convert a motor recommendation into one or more motor settings, which are sent to
         the corresponding motor(s)
         """
+        self.execute_setting[value]()
 
     def turn_right(self, degrees):
         # TODO: regne på forhold mellom speed og dur
