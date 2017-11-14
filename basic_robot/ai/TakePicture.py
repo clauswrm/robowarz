@@ -7,7 +7,7 @@ from basic_robot.ai.BBCON import BBCON
 
 class TakePicture(Behavior):
     def __init__(self, bbcon: BBCON, priority: int, prox_sensob: Proximity_Sensob):
-        super(bbcon, priority)
+        super().__init__(bbcon, priority)
         self.prox_sensob = prox_sensob
 
 
