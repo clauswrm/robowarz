@@ -38,7 +38,7 @@ while True:
 
     try:
         while running:
-            x =
+            x = 0
             value = sens.update()
             print("Value: "+str(value))
             error = calculate_error(value)
