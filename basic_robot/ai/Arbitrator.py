@@ -37,6 +37,7 @@ class Arbitrator:
 
         P(behavior) = (behavior_weight/sum_of_behavior_weights)
         """
+
         def generate_stoch_range(behaviors: list) -> list:
             """
             Helper method that takes a list of behaviors, and turns it into a list of
