@@ -27,8 +27,9 @@ def check_for_junction(sens_values):
     # denne kalibreringen fungerer trolig kun oppå bordene
     k = 1.4
     x = sum(sens_values)
+    print(sens_values)
+    print(x)
     if x < k:
-        print(sens_values)
         return True
     return False
 
@@ -36,7 +37,12 @@ def check_for_junction(sens_values):
 sens = ReflectanceSensors()
 value = []
 
+
+
+
 while True:
+    while True:
+        val = sens.update()
     ZumoButton().wait_for_press()
 
     m.forward()
@@ -51,7 +57,6 @@ while True:
             error = calculate_error(value)
             m.stop()
             if check_for_junction(value):
-                print("NODE DETECTED")
                 m.turn_right(90)
                 error = calculate_error(sens.update())
                 m.stop()
