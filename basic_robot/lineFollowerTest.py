@@ -48,18 +48,13 @@ sens = ReflectanceSensors()
 value = []
 
 
-
-
 while True:
-
     m.forward()
-
     running = True
-
     try:
         while running:
 
-            sleep(0.1)
+            sleep(0.02)
             value = sens.update()
             error = calculate_error(value)
             m.stop()
