@@ -35,40 +35,55 @@ def make_adjustment(error):
 def check_for_junction(sens_values):
     # TODO: Etabler en eller annen funksjon av sensorverdiene
     # denne kalibreringen fungerer trolig kun oppå bordene
-    k = 1.4
+    nodeThreshold = 1.4
+    leafThreshold = 3.5
     x = sum(sens_values)
     print(sens_values)
     print(x)
-    if x < k:
-        return True
-    return False
+    if x >leafThreshold:
+        return 2
+    if x < nodeThreshold:
+        return 1
+    return 0
 
 
 sens = ReflectanceSensors()
 value = []
 
 
-
-
 while True:
+    ZumoButton().wait_for_press()
+
+    while True:
+        x = int(input("Input: "))
+        m.turn_right(x)
+    ZumoButton().wait_for_press()
 
     m.forward()
-
     running = True
-
     try:
         while running:
 
-            sleep(0.1)
+            sleep(0.02)
             value = sens.update()
             error = calculate_error(value)
             m.stop()
-            if check_for_junction(value):
-                m.turn_right(110)#bør nok oftest være 90 grader
-                error = calculate_error(sens.update())
+            if check_for_junction(value)==1:
+                m.turn_right(95)#bør nok oftest være 90 grader
                 m.stop()
-                sleep(1)
+                sleep(0.25)
+                value = sens.update()
+                error = calculate_error(value)
+
+            elif check_for_junction(value)==2:
+                m.turn_right(190)
+                m.stop()
+                sleep(0.25)
+                value = sens.update()
+                error = calculate_error(value)
+
 
             make_adjustment(error)
+
     except:
         m.stop()
