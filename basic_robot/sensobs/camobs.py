@@ -8,6 +8,9 @@ class Camob:
     def __init__(self):
         self.c = Camera()
 
+    def take_pic(self):
+        self.c.update.show()
+
     def get_pixel(self, x, y):
         return self.c.image.getpixel((x, y))
 
@@ -15,7 +18,7 @@ class Camob:
     ''' returnerer deretter gjenomsnittet av alle verdiene'''
 
     def get_avg_col(self):
-        self.sensor_get_value
+        self.c.sensor_get_value
         im = self.c.value
 
         return_list = [0, 0, 0]
