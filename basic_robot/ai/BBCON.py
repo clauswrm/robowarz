@@ -54,6 +54,7 @@ class BBCON:
             sensob.update()
         for behavior in self.behaviors:
             behavior.update()
+            print(behavior.weight)
         chosen_behavior = self.arbitrator.choose_action()
         print(chosen_behavior.motor_recommendations)
         #self.motob.update(chosen_behavior.motor_recommendations)
