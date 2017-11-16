@@ -48,7 +48,7 @@ class Camobs:
         # dette er bare en lett idé, godt mulig dette vil kreve en mye mer kompleks algoritme
 
         base_value = [222, 76, 30]
-        if base_value[1] > 75 or base_value[2] > 75:
+        if base_value[1] > 200 or base_value[2] > 200:
             return 0
 
         color_list = self.get_avg.col()
@@ -56,6 +56,7 @@ class Camobs:
         b = color_list[1] / base_value[1]
         c = color_list[2] / base_value[2]
         z = (a + b + c) / 3
+        print z
         return z
 
 
@@ -80,6 +81,7 @@ def main():
     cam = Camobs()
     while True:
         print(cam.match_degree())
+        sleep(1)
 
 
 main()
