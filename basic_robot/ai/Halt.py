@@ -12,10 +12,7 @@ class Halt(Behavior):
         if self.bbcon.moving:
             self.active_flag = True
 
-    def consider_deactivation(self):
-        if not self.prox_sensob.check_proximity_both_sides():
-            self.active_flag = False
-
     def sense_and_act(self):
         if self.prox_sensob.get_value():
-            #TODO: Calculate weight for when in a garage
+            pass
+            # TODO: Calculate weight for when in a garage
