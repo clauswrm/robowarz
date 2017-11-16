@@ -1,6 +1,6 @@
 from motors import Motors
 from time import sleep
-from sensobs.zumo_button import ZumoButton
+from basic_robot.sensobs.zumo_button import ZumoButton
 
 
 class Motob:
