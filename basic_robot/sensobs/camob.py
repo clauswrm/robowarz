@@ -47,7 +47,7 @@ class Camobs:
         Nøyaktig hvilket tall som blir brukt er svært tentativt.'''
         # dette er bare en lett idé, godt mulig dette vil kreve en mye mer kompleks algoritme
 
-        base_value = [222, 76, 30]
+        base_value = [255, 50, 50]
         if base_value[1] > 200 or base_value[2] > 200:
             return 0
 
