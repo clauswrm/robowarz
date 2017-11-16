@@ -19,6 +19,8 @@ def main():
     Runs the BBCON indefinetly
     """
     bbcon = BBCON(motob=Motob())
+    bbcon.motob.stop()
+
     reflectance = Reflectob()
     #camera = Camob()
     #proximity = Proximity_Sensob()
