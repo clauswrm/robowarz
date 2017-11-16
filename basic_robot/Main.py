@@ -6,7 +6,7 @@ from basic_robot.ai.Adjust import Adjust
 from basic_robot.actuation.Motob import Motob
 from basic_robot.sensobs.zumo_button import ZumoButton
 from basic_robot.sensobs.reflectob import Reflectob
-from basic_robot.sensobs.camob import Camobs
+from basic_robot.sensobs.camob import Camob
 from basic_robot.sensobs.Proximity_Sensob import Proximity_Sensob
 from time import sleep
 
@@ -20,12 +20,13 @@ def main():
     """
     bbcon = BBCON(motob=Motob())
     reflectance = Reflectob()
-    camera = Camobs()
+    camera = Camob()
     proximity = Proximity_Sensob()
-    bbcon.add_behavior(Go_Forward(bbcon=bbcon, priority=1, reflectance_sensob=reflectance))
-    bbcon.add_behavior(Adjust(bbcon=bbcon, priority=4, reflectance_sensob=reflectance))
-    bbcon.add_behavior(Halt(bbcon=bbcon, priority=2, prox_sensob=proximity))
-    bbcon.add_behavior(Turn_Around(bbcon=bbcon, priority=3, camera=camera))
+
+    bbcon.add_behavior(Go_Forward(bbcon=bbcon, priority=1))
+    bbcon.add_behavior(Adjust(bbcon=bbcon, priority=2, reflectob=reflectance))
+    bbcon.add_behavior(Halt(bbcon=bbcon, priority=3, prox_sensob=proximity))
+    bbcon.add_behavior(Turn_Around(bbcon=bbcon, priority=4, camera=camera))
 
     ZumoButton().wait_for_press()
     sleep(2)
