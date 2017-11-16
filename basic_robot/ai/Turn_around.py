@@ -1,6 +1,6 @@
 from basic_robot.ai.Behaviors import Behavior
 from basic_robot.ai.BBCON import BBCON
-from basic_robot.sensobs.camobs import Camobs
+from basic_robot.sensobs.camob import Camobs
 
 
 class TurnAround(Behavior):
