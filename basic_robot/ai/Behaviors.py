@@ -7,7 +7,7 @@ class Behavior:
     def __init__(self, bbcon, priority):
         self.bbcon = bbcon
         self.motor_recommendations = []
-        self.active_flag = False
+        self.active_flag = True
         self.halt_request = None
         self.priority = priority
         self.match_degree = 0
