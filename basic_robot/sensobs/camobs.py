@@ -18,7 +18,6 @@ class Camobs:
     ''' returnerer deretter gjenomsnittet av alle verdiene'''
 
     def get_avg_col(self):
-        self.c.update()
         img = self.c.value
 
         return_list = [0, 0, 0]
@@ -51,7 +50,7 @@ class Camobs:
         if base_value[1] > 200 or base_value[2] > 200:
             return 0
 
-        color_list = self.get_avg.col()
+        color_list = self.get_avg_col()
         a = color_list[0] / base_value[0]
         b = color_list[1] / base_value[1]
         c = color_list[2] / base_value[2]

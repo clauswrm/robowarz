@@ -21,6 +21,7 @@ class Behavior:
         """ If the behavior is deactivated, it tests whether it should deactivate. """
         pass
 
+
     def consider_deactivation(self):
         """ If the behavior is activated, it tests whether it should activate. """
         pass

@@ -22,6 +22,7 @@ class BBCON:
         self.sensobs = []
         self.motob = motob
         self.arbitrator = Arbitrator(bbcon=self)
+        self.moving = False
 
     def add_behavior(self, behavior: Behavior):
         """ Append a newly-created behavior onto the behaviors list """
