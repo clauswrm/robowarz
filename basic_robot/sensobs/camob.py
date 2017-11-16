@@ -48,7 +48,7 @@ class Camobs:
         # dette er bare en lett idé, godt mulig dette vil kreve en mye mer kompleks algoritme
         base_value = [50, 255, 50]
         #base_value = [255, 50, 50]
-        if base_value[1] > 200 or base_value[2] > 200:
+        if base_value[0] > 200 or base_value[2] > 200:
             return 0
 
         color_list = self.get_avg_col()
