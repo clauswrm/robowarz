@@ -13,14 +13,13 @@ class Motob:
             "stop": self.stop,
             "forward": self.forward,
             "adjust": self.adjust,
-            "turn":self.turn_right
-
+            "turn": self.turn_around
         }
 
     def update(self, recommendations):
         """ Receive a new motor recommendation, load it into the value slot, and operationalize it """
 
-        if len(recommendations)==2:
+        if len(recommendations) == 2:
 
             self.execute_setting[recommendations[0]](recommendations[1])
         else:
@@ -44,6 +43,10 @@ class Motob:
             dur = degrees / 110 * self.speed
         self.motors.left(speed=self.speed, dur=dur)
 
+    def turn_around(self):
+        self.backward(0.5)
+        self.turn_right(180)
+
     def forward(self, dur=None):
         self.motors.forward(speed=self.speed, dur=dur)
 
@@ -53,7 +56,7 @@ class Motob:
     def stop(self):
         self.motors.stop()
 
-    def adjust(self,error):
+    def adjust(self, error):
         if error > 0.1:
             self.turn_right(error * 20)
         elif error < -0.1:
