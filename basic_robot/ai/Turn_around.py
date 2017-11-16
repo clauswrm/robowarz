@@ -12,6 +12,7 @@ class Turn_Around(Behavior):
         if not self.bbcon.moving:
             self.active_flag = True
             self.bbcon.activate_behavior(self)
+            self.bbcon.add_sensob(self.camera)
 
     def consider_deactivation(self):
         if self.bbcon.moving:
