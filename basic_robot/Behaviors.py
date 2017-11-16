@@ -1,5 +1,5 @@
-from basic_robot.ai.BBCON import BBCON
-from basic_robot.sensobs.Sensob import Sensob
+#from basic_robot.ai.BBCON import BBCON
+#from basic_robot.sensobs.Sensob import Sensob
 
 
 class Behavior:
@@ -8,7 +8,7 @@ class Behavior:
     as a basis for determining a motor request.
     """
 
-    def __init__(self, bbcon: BBCON, priority: int):
+    def __init__(self, bbcon, priority: int):
         self.bbcon = bbcon
         self.motor_recommendations = []
         self.active_flag = False

@@ -1,9 +1,9 @@
-from sensobs.camera import Camera
-from sensobs.ultrasonic import Ultrasonic
-from actuation.motors import Motors
-from PIL import Image
-import PIL
 from time import sleep
+
+from camera import Camera
+from motors import Motors
+from sensobs.ultrasonic import Ultrasonic
+
 cam = Camera()
 ultra = Ultrasonic()
 m = Motors()

@@ -1,5 +1,5 @@
-from basic_robot.ai.BBCON import BBCON
-from basic_robot.ai.Behaviors import Behavior
+#from BBCON import BBCON
+from Behaviors import Behavior
 from random import random
 
 
@@ -9,7 +9,7 @@ class Arbitrator:
     to the BBCONs motobs.
     """
 
-    def __init__(self, bbcon: BBCON, stochastic: bool = False):
+    def __init__(self, bbcon, stochastic: bool = False):
         self.bbcon = bbcon
         self.stochastic = stochastic
 

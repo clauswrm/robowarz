@@ -1,14 +1,16 @@
-from basic_robot.ai.BBCON import BBCON
-from basic_robot.ai.go_forward import Go_Forward
-from basic_robot.ai.Halt import Halt
-from basic_robot.ai.Turn_around import Turn_Around
-from basic_robot.ai.Adjust import Adjust
-from basic_robot.actuation.Motob import Motob
-from basic_robot.sensobs.zumo_button import ZumoButton
-from basic_robot.sensobs.reflectob import Reflectob
-from basic_robot.sensobs.camob import Camob
-from basic_robot.sensobs.Proximity_Sensob import Proximity_Sensob
-from time import sleep
+from BBCON import BBCON
+
+from go_forward import Go_Forward
+from Halt import Halt
+from Turn_around import Turn_Around
+from Adjust import Adjust
+from Motob import Motob
+from zumo_button import ZumoButton
+from reflectob import Reflectob
+from camob import Camob
+from Proximity_Sensob import Proximity_Sensob
+#from time import sleep
+
 
 
 def main():

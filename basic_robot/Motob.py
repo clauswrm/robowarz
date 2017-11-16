@@ -1,4 +1,4 @@
-from actuation.motors import Motors
+from motors import Motors
 from time import sleep
 from sensobs.zumo_button import ZumoButton
 
@@ -39,7 +39,7 @@ class Motob:
 
     def turn_left(self, degrees=None):
         # Denne formelen er basert på speed = 0.5. Left turning virker noe kjappere enn right turning.
-        # Derav kortere turn duration
+        # Derav ko rtere turn duration
         if degrees != None:
             dur = degrees / 110 * self.speed
         self.motors.left(speed=self.speed, dur=dur)

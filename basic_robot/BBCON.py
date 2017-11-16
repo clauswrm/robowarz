@@ -1,7 +1,7 @@
-from basic_robot.ai.Arbitrator import Arbitrator
-from basic_robot.ai.Behaviors import Behavior
-from basic_robot.actuation.Motob import Motob
-from basic_robot.sensobs.Sensob import Sensob
+from Arbitrator import Arbitrator
+from Behaviors import Behavior
+from Motob import Motob
+from Sensob import Sensob
 from time import sleep
 
 

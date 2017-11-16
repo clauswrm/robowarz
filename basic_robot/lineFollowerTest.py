@@ -1,8 +1,6 @@
-from actuation.Motob import Motob
+from Motob import Motob
 from sensobs.reflectance_sensors import ReflectanceSensors
 from sensobs.zumo_button import ZumoButton
-from time import sleep, time
-from math import sqrt
 
 d = 100
 m = Motob()
