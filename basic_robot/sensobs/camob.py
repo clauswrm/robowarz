@@ -9,6 +9,9 @@ class Camob:
         self.c = Camera()
         self.c.update()
 
+    def update(self):
+        self.c.update()
+
     def take_pic(self):
         self.c.update.show()
 
