@@ -84,13 +84,13 @@ for l in range(0, 3):
 print(return_list)
 '''
 
+if __name__ == '__main__':
+    def main():
+        cam = Camob()
+        while True:
+            print(cam.match_degree_basic())
+            cam.c.update()
+            sleep(1)
 
-def main():
-    cam = Camob()
-    while True:
-        print(cam.match_degree_basic())
-        cam.c.update()
-        sleep(1)
 
-
-main()
+    main()
