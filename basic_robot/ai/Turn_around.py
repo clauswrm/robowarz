@@ -7,6 +7,7 @@ class Turn_Around(Behavior):
     def __init__(self, bbcon: BBCON, priority: int, camera: Camob):
         super().__init__(bbcon, priority)
         self.camera = camera
+        self.motor_recommendations = ['turn']
 
     def consider_activation(self):
         if not self.bbcon.moving:
@@ -17,6 +18,4 @@ class Turn_Around(Behavior):
             self.active_flag = False
 
     def sense_and_act(self):
-        if self.camera.match_degree():
-            pass
-            # TODO: Calculate weight for when in a garage and seeing red/green stuff
+        self.match_degree = self.camera.match_degree()

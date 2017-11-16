@@ -28,7 +28,7 @@ class Behavior:
 
     def sense_and_act(self):
         """ The core computations performed by the behavior that use sensob
-        readings to produce motor recommendations( and halt requests). """
+        readings to produce motor recommendations (and halt requests). """
         pass
 
     def update(self):

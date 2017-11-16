@@ -5,6 +5,7 @@ from basic_robot.sensobs.ultrasonic import Ultrasonic
 class Proximity_Sensob(Sensob):
 
     def __init__(self, ir_sensor: IRProximitySensor):
+        super().__init__(ir_sensor)
         self.ir_sensor = IRProximitySensor()
 
     def update(self):
