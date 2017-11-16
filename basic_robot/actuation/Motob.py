@@ -53,7 +53,7 @@ class Motob:
     def stop(self):
         self.motors.stop()
 
-    def make_adjustment(self,error):
+    def adjust(self,error):
 
         if error > 0.1:
             m.turn_right(error * 20)
