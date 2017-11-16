@@ -1,5 +1,3 @@
-from basic_robot.ai.BBCON import BBCON
-from basic_robot.ai.Behaviors import Behavior
 from random import random
 
 
@@ -9,11 +7,11 @@ class Arbitrator:
     to the BBCONs motobs.
     """
 
-    def __init__(self, bbcon: BBCON, stochastic: bool = False):
+    def __init__(self, bbcon, stochastic: bool = False):
         self.bbcon = bbcon
         self.stochastic = stochastic
 
-    def choose_action(self) -> Behavior:
+    def choose_action(self):
         """
         Chooses the behavior according to the 'stochastic'-flag: if False, the behavior
         with highest weight will simply be chosen. Else it will return the output from
@@ -30,7 +28,7 @@ class Arbitrator:
                 highest_weight = chosen_behavior.weight
         return chosen_behavior
 
-    def stochastic_choose_action(self) -> Behavior:
+    def stochastic_choose_action(self):
         """
         Chooses the behavior stochasticly, with each behavior having a certain probability
         of being chosen, given by the formula:
