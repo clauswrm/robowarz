@@ -27,7 +27,7 @@ class Graph_Handler():
 
     def calculate_path_to(self):
         pass
-    
+
     def add_node(self):
         parent = self.current_edge[0]
         node = Node(parent)
