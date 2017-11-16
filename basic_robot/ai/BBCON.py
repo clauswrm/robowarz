@@ -58,5 +58,5 @@ class BBCON:
         print(chosen_behavior.motor_recommendations)
         #self.motob.update(chosen_behavior.motor_recommendations)
         sleep(0.2)
-        for sensob in self.sensobs:
-            sensob.reset()
+        #for sensob in self.sensobs:
+        #    sensob.reset()
