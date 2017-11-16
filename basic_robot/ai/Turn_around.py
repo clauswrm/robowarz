@@ -3,7 +3,7 @@ from basic_robot.ai.BBCON import BBCON
 from basic_robot.sensobs.camobs import Camobs
 
 
-class TurnAround(Behavior):
+class Turn_Around(Behavior):
     def __init__(self, bbcon: BBCON, priority: int, camera: Camobs):
         super().__init__(bbcon, priority)
         self.camera = camera
