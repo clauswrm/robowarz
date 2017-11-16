@@ -24,22 +24,22 @@ def main():
     bbcon.motob.stop()
 
     reflectance = Reflectob()
-    #camera = Camob(bbcon)
+    camera = Camob(bbcon)
     proximity = Proximity_Sensob()
 
     bbcon.add_sensob(reflectance)
-    #bbcon.add_sensob(camera)
+    bbcon.add_sensob(camera)
     bbcon.add_sensob(proximity)
 
     forward = Go_Forward(bbcon=bbcon, priority=1)
     adjust = Adjust(bbcon=bbcon, priority=2, reflectob=reflectance)
     halt = Halt(bbcon=bbcon, priority=3, prox_sensob=proximity)
-    #turn = Turn_Around(bbcon=bbcon, priority=4, camera=camera)
+    turn = Turn_Around(bbcon=bbcon, priority=4, camera=camera)
 
     bbcon.add_behavior(forward)
     bbcon.add_behavior(adjust)
     bbcon.add_behavior(halt)
-    #bbcon.add_behavior(turn)
+    bbcon.add_behavior(turn)
 
     bbcon.activate_behavior(forward)
     bbcon.activate_behavior(adjust)
