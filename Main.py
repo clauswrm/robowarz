@@ -25,6 +25,8 @@ def main():
     #camera = Camob()
     #proximity = Proximity_Sensob()
 
+    bbcon.add_sensob(reflectance)
+
     bbcon.add_behavior(Go_Forward(bbcon=bbcon, priority=1))
     bbcon.add_behavior(Adjust(bbcon=bbcon, priority=2, reflectob=reflectance))
     #bbcon.add_behavior(Halt(bbcon=bbcon, priority=3, prox_sensob=proximity))
