@@ -4,7 +4,7 @@ from time import sleep
 from PIL import Image
 
 
-class Camobs:
+class Camob:
     def __init__(self):
         self.c = Camera()
         self.c.update()
@@ -59,6 +59,14 @@ class Camobs:
         print(z)
         return z
 
+    def match_degree_basic(self):
+        # dette er bare en lett idé, godt mulig dette vil kreve en mye mer kompleks algoritme
+        base_value = 255
+        color_list = self.get_avg_col()
+        z = color_list[0] / base_value
+        #her er z da 'match'-graden som en prosent, den ser bare på hvor mye rødt det er,
+        #og bryr seg ikke om hva annet et som er i bildet, sort vil f.eks regnes som rødt.
+        return z
 
 # rød er f eks
 # [222, 76, 30]
@@ -78,9 +86,9 @@ print(return_list)
 
 
 def main():
-    cam = Camobs()
+    cam = Camob()
     while True:
-        print(cam.match_degree())
+        print(cam.match_degree_basic())
         cam.c.update()
         sleep(1)
 
