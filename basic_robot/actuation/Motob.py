@@ -44,7 +44,7 @@ class Motob:
         self.motors.left(speed=self.speed, dur=dur)
 
     def turn_around(self):
-        self.backward(0.5)
+        self.backward(1)
         self.turn_right(180)
 
     def forward(self, dur=None):

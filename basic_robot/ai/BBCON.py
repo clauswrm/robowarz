@@ -1,5 +1,5 @@
 from basic_robot.ai.Arbitrator import Arbitrator
-
+from time import sleep
 
 class BBCON:
     """
@@ -59,3 +59,4 @@ class BBCON:
             self.moving = True
 
         self.motob.update(chosen_behavior.motor_recommendations)
+        sleep(0.1)
