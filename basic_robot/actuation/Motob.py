@@ -54,12 +54,10 @@ class Motob:
         self.motors.stop()
 
     def adjust(self,error):
-
         if error > 0.1:
-            m.turn_right(error * 20)
+            self.turn_right(error * 20)
         elif error < -0.1:
-            m.turn_left(-error * 20)
-        m.forward()
+            self.turn_left(-error * 20)
 
     def rightSquare(self, dist):
         for i in range(0, 4):
