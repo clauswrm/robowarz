@@ -5,12 +5,14 @@ from PIL import Image
 
 
 class Camob:
-    def __init__(self):
+    def __init__(self, bbcon):
+        self.bbcon = bbcon
         self.c = Camera()
         self.c.update()
 
     def update(self):
-        self.c.update()
+        if self.bbcon.moving:
+            self.c.update()
 
     def take_pic(self):
         self.c.update.show()

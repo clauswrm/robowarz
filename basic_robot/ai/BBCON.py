@@ -1,5 +1,4 @@
 from basic_robot.ai.Arbitrator import Arbitrator
-from time import sleep
 
 
 class BBCON:
@@ -45,7 +44,6 @@ class BBCON:
         2) Updates all behaviors
         3) Invoke arbitrator
         4) Update motobs
-        5) Wait
         """
 
         for sensob in self.sensobs:
@@ -61,4 +59,3 @@ class BBCON:
             self.moving = True
 
         self.motob.update(chosen_behavior.motor_recommendations)
-        #sleep(0.1)
