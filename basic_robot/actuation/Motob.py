@@ -10,21 +10,21 @@ class Motob:
         self.speed = 0.5
 
         self.execute_setting = {
-            "stop": self.stop
+            "stop": self.stop,
+            "forward": self.forward,
+            "adjust": self.adjust,
+            "turn":self.turn_right
+
         }
 
     def update(self, recommendations):
         """ Receive a new motor recommendation, load it into the value slot, and operationalize it """
-        for action in recommendations:
-            self.value = action
-            self.operationalize(self.value)
 
-    def operationalize(self, value):
-        """
-        Convert a motor recommendation into one or more motor settings, which are sent to
-        the corresponding motor(s)
-        """
-        self.execute_setting[value]()
+        if len(recommendations)==2:
+
+            self.execute_setting[recommendations[0]](recommendations[1])
+        else:
+            self.execute_setting[recommendations[0]]()
 
     def turn_right(self, degrees):
         # TODO: regne på forhold mellom speed og dur
@@ -52,6 +52,14 @@ class Motob:
 
     def stop(self):
         self.motors.stop()
+
+    def make_adjustment(self,error):
+
+        if error > 0.1:
+            m.turn_right(error * 20)
+        elif error < -0.1:
+            m.turn_left(-error * 20)
+        m.forward()
 
     def rightSquare(self, dist):
         for i in range(0, 4):
