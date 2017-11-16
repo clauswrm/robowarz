@@ -52,7 +52,7 @@ class BBCON:
             behavior.update()
         chosen_behavior = self.arbitrator.choose_action()
         print(chosen_behavior.motor_recommendations)
-
+        print(self.moving)
         if chosen_behavior.motor_recommendations[0] == 'stop':
             self.moving = False
         else:
