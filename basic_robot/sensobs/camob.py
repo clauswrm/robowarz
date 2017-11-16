@@ -81,7 +81,7 @@ def main():
     cam = Camobs()
     while True:
         print(cam.match_degree())
-        cam.c.uptdate()
+        cam.c.update()
         sleep(1)
 
 
