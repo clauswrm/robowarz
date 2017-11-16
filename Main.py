@@ -28,7 +28,7 @@ def main():
     proximity = Proximity_Sensob()
 
     bbcon.add_sensob(reflectance)
-    #bbcon.add_sensob(camera)
+    bbcon.add_sensob(camera)
     bbcon.add_sensob(proximity)
 
     forward = Go_Forward(bbcon=bbcon, priority=1)
