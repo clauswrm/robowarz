@@ -7,6 +7,7 @@ from PIL import Image
 class Camobs:
     def __init__(self):
         self.c = Camera()
+        self.c.update()
 
     def take_pic(self):
         self.c.update.show()
@@ -55,7 +56,7 @@ class Camobs:
         b = color_list[1] / base_value[1]
         c = color_list[2] / base_value[2]
         z = (a + b + c) / 3
-        print (z)
+        print(z)
         return z
 
 
