@@ -11,7 +11,7 @@ class Camob:
         self.c.update()
 
     def update(self):
-        if self.bbcon.moving:
+        if not self.bbcon.moving:
             self.c.update()
 
     def take_pic(self):
