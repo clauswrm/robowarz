@@ -1,4 +1,4 @@
-from actuation.motors import Motors
+from motors import Motors
 from time import sleep
 from sensobs.zumo_button import ZumoButton
 
