@@ -1,14 +1,10 @@
-from basic_robot.ai.BBCON import BBCON
-from basic_robot.sensobs.Sensob import Sensob
-
-
 class Behavior:
     """
     Default behavior that analyzes a subset of the BBCONs sensory information
     as a basis for determining a motor request.
     """
 
-    def __init__(self, bbcon: BBCON, priority: int):
+    def __init__(self, bbcon, priority):
         self.bbcon = bbcon
         self.motor_recommendations = []
         self.active_flag = False
@@ -20,7 +16,6 @@ class Behavior:
     def consider_activation(self):
         """ If the behavior is deactivated, it tests whether it should deactivate. """
         pass
-
 
     def consider_deactivation(self):
         """ If the behavior is activated, it tests whether it should activate. """
