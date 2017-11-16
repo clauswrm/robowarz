@@ -11,6 +11,7 @@ class Adjust(Behavior):
 
 
     def sense_and_act(self):
-        error = reflectob.
-        self.match_degree = abs()
+        self.error = self.reflectob.get_value()
+        self.motor_recommendations[1]=self.error
+        self.match_degree = abs(self.error)
 
