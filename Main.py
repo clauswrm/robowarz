@@ -29,13 +29,18 @@ def main():
     bbcon.add_sensob(camera)
     bbcon.add_sensob(proximity)
 
-    bbcon.activate_behavior(reflectance)
-    bbcon.activate_behavior(proximity)
+    forward = Go_Forward(bbcon=bbcon, priority=1)
+    adjust = Adjust(bbcon=bbcon, priority=2, reflectob=reflectance)
+    halt = Halt(bbcon=bbcon, priority=3, prox_sensob=proximity)
+    turn = Turn_Around(bbcon=bbcon, priority=4, camera=camera)
 
-    bbcon.add_behavior(Go_Forward(bbcon=bbcon, priority=1))
-    bbcon.add_behavior(Adjust(bbcon=bbcon, priority=2, reflectob=reflectance))
-    bbcon.add_behavior(Halt(bbcon=bbcon, priority=3, prox_sensob=proximity))
-    bbcon.add_behavior(Turn_Around(bbcon=bbcon, priority=5, camera=camera))
+    bbcon.add_behavior(forward)
+    bbcon.add_behavior(adjust)
+    bbcon.add_behavior(halt)
+    bbcon.add_behavior(turn)
+
+    bbcon.activate_behavior(forward)
+    bbcon.activate_behavior(adjust)
 
     ZumoButton().wait_for_press()
     sleep(2)
