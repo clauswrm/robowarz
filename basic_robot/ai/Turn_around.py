@@ -1,10 +1,8 @@
 from basic_robot.ai.Behaviors import Behavior
-from basic_robot.ai.BBCON import BBCON
-from basic_robot.sensobs.camob import Camob
 
 
 class Turn_Around(Behavior):
-    def __init__(self, bbcon: BBCON, priority: int, camera: Camob):
+    def __init__(self, bbcon, priority, camera):
         super().__init__(bbcon, priority)
         self.camera = camera
         self.motor_recommendations = ['turn']

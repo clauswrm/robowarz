@@ -1,10 +1,8 @@
 from basic_robot.ai.Behaviors import Behavior
-from basic_robot.sensobs.Proximity_Sensob import Proximity_Sensob
-from basic_robot.ai.BBCON import BBCON
 
 
 class Halt(Behavior):
-    def __init__(self, bbcon: BBCON, priority: int, prox_sensob: Proximity_Sensob):
+    def __init__(self, bbcon, priority, prox_sensob):
         super().__init__(bbcon, priority)
         self.prox_sensob = prox_sensob
         self.motor_recommendations = ['stop']

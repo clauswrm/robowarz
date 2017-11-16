@@ -7,7 +7,7 @@ class Arbitrator:
     to the BBCONs motobs.
     """
 
-    def __init__(self, bbcon, stochastic: bool = False):
+    def __init__(self, bbcon, stochastic = False):
         self.bbcon = bbcon
         self.stochastic = stochastic
 
@@ -36,7 +36,7 @@ class Arbitrator:
         P(behavior) = (behavior_weight/sum_of_behavior_weights)
         """
 
-        def generate_stoch_range(behaviors: list) -> list:
+        def generate_stoch_range(behaviors):
             """
             Helper method that takes a list of behaviors, and turns it into a list of
             values between 0 and 1 where the probability of behavior 'i' is defined as:

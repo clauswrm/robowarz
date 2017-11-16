@@ -1,4 +1,3 @@
-from basic_robot import *
 from basic_robot.ai.BBCON import BBCON
 from basic_robot.ai.go_forward import Go_Forward
 from basic_robot.ai.Halt import Halt

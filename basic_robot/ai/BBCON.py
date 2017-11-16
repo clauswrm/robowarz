@@ -1,7 +1,4 @@
 from basic_robot.ai.Arbitrator import Arbitrator
-from basic_robot.ai.Behaviors import Behavior
-from basic_robot.actuation.Motob import Motob
-from basic_robot.sensobs.Sensob import Sensob
 from time import sleep
 
 
@@ -16,7 +13,7 @@ class BBCON:
     Should only require one instance (per robot).
     """
 
-    def __init__(self, motob: Motob):
+    def __init__(self, motob):
         self.behaviors = []
         self.active_behaviors = []
         self.sensobs = []
@@ -24,20 +21,20 @@ class BBCON:
         self.arbitrator = Arbitrator(bbcon=self)
         self.moving = False
 
-    def add_behavior(self, behavior: Behavior):
+    def add_behavior(self, behavior):
         """ Append a newly-created behavior onto the behaviors list """
         self.behaviors.append(behavior)
 
-    def add_sensob(self, sensob: Sensob):
+    def add_sensob(self, sensob):
         """ Append a newly-created sensob onto the sensobs list """
         self.sensobs.append(sensob)
 
-    def activate_behavior(self, behavior: Behavior):
+    def activate_behavior(self, behavior):
         """ Add an existing behavior onto the active_behaviors list """
         if behavior not in self.active_behaviors:
             self.active_behaviors.append(behavior)
 
-    def deactivate_behavior(self, behavior: Behavior):
+    def deactivate_behavior(self, behavior):
         """ Remove an existing behavior from the active_behaviors list """
         if behavior in self.active_behaviors:
             self.active_behaviors.remove(behavior)

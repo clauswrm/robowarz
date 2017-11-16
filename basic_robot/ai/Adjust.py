@@ -1,10 +1,9 @@
 from basic_robot.ai.Behaviors import Behavior
-from basic_robot.ai.BBCON import BBCON
 from basic_robot.sensobs.reflectob import Reflectob
 
 
 class Adjust(Behavior):
-    def __init__(self, bbcon: BBCON, priority: int, reflectob: Reflectob):
+    def __init__(self, bbcon, priority, reflectob: Reflectob):
         super().__init__(bbcon, priority)
         self.motor_recommendations = ['adjust', 0]
         self.reflectob = reflectob
