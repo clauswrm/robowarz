@@ -23,13 +23,13 @@ def main():
 
     reflectance = Reflectob()
     #camera = Camob()
-    #proximity = Proximity_Sensob()
+    proximity = Proximity_Sensob()
 
     bbcon.add_sensob(reflectance)
 
     bbcon.add_behavior(Go_Forward(bbcon=bbcon, priority=1))
     bbcon.add_behavior(Adjust(bbcon=bbcon, priority=2, reflectob=reflectance))
-    #bbcon.add_behavior(Halt(bbcon=bbcon, priority=3, prox_sensob=proximity))
+    bbcon.add_behavior(Halt(bbcon=bbcon, priority=3, prox_sensob=proximity))
     #bbcon.add_behavior(Turn_Around(bbcon=bbcon, priority=4, camera=camera))
 
     ZumoButton().wait_for_press()
