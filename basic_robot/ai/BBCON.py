@@ -24,6 +24,7 @@ class BBCON:
     def add_behavior(self, behavior):
         """ Append a newly-created behavior onto the behaviors list """
         self.behaviors.append(behavior)
+        self.activate_behavior(behavior)
 
     def add_sensob(self, sensob):
         """ Append a newly-created sensob onto the sensobs list """
