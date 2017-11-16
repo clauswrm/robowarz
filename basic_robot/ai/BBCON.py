@@ -19,7 +19,7 @@ class BBCON:
         self.sensobs = []
         self.motob = motob
         self.arbitrator = Arbitrator(bbcon=self)
-        self.moving = False
+        self.moving = True
 
     def add_behavior(self, behavior):
         """ Append a newly-created behavior onto the behaviors list """
@@ -46,7 +46,6 @@ class BBCON:
         3) Invoke arbitrator
         4) Update motobs
         5) Wait
-        6) Reset sensobs
         """
 
         for sensob in self.sensobs:
@@ -55,7 +54,11 @@ class BBCON:
             behavior.update()
         chosen_behavior = self.arbitrator.choose_action()
         print(chosen_behavior.motor_recommendations)
+
+        if chosen_behavior.motor_recommendations[0] == 'stop':
+            self.moving = False
+        else:
+            self.moving = True
+
         self.motob.update(chosen_behavior.motor_recommendations)
         sleep(0.2)
-        #for sensob in self.sensobs:
-        #    sensob.reset()
