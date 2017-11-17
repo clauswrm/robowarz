@@ -58,9 +58,9 @@ class Motob:
 
     def adjust(self, error):
         if error > 0.1:
-            self.turn_right(error * 20)
+            self.turn_right(error * 35)
         elif error < -0.1:
-            self.turn_left(-error * 20)
+            self.turn_left(-error * 35)
 
     def rightSquare(self, dist):
         for i in range(0, 4):
