@@ -33,17 +33,17 @@ def main():
 
     forward = Go_Forward(bbcon=bbcon, priority=1)
     adjust = Adjust(bbcon=bbcon, priority=2, reflectob=reflectance)
-    halt = Halt(bbcon=bbcon, priority=3, prox_sensob=proximity)
+    #halt = Halt(bbcon=bbcon, priority=3, prox_sensob=proximity)
     turn = Turn_Around(bbcon=bbcon, priority=4, camera=camera)
 
     bbcon.add_behavior(forward)
     bbcon.add_behavior(adjust)
-    bbcon.add_behavior(halt)
+    #bbcon.add_behavior(halt)
     bbcon.add_behavior(turn)
 
     bbcon.activate_behavior(forward)
     bbcon.activate_behavior(adjust)
-    bbcon.activate_behavior(halt)
+    #bbcon.activate_behavior(halt)
 
     ZumoButton().wait_for_press()
     sleep(2)
