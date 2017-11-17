@@ -35,6 +35,7 @@ class Camob(Sensob):
                     return_list[k] += img.getpixel((j, i))[k]
         for l in range(0, 3):
             return_list[l] = return_list[l] // (self.c.img_height * self.c.img_width)
+        print(return_list)
         return return_list
 
     def print_color_avg(self):
