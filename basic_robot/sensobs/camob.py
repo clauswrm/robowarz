@@ -50,7 +50,7 @@ class Camob(Sensob):
         if True:
             pass
 
-    def match_degree(self):
+    def match_degree_old(self):
         '''Denne metoden skal kalkulerer til hvilken grad bildet observert passer med målet.
         Nøyaktig hvilket tall som blir brukt er svært tentativt.'''
         # dette er bare en lett idé, godt mulig dette vil kreve en mye mer kompleks algoritme
@@ -66,7 +66,7 @@ class Camob(Sensob):
         z = (a + b + c) / 3
         return z
 
-    def match_degree_basic(self):
+    def match_degree(self):
         # dette er bare en lett idé, godt mulig dette vil kreve en mye mer kompleks algoritme
         base_value = 255
         color_list = self.get_avg_col()
