@@ -22,5 +22,4 @@ class Reflectob(Sensob):
         outValue += 0.6 * sens_values[1]
         outValue -= 0.6 * sens_values[4]
         outValue -= sens_values[5]
-        print(outValue)
         return outValue

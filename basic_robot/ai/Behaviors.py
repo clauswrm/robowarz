@@ -37,8 +37,9 @@ class Behavior:
         else:
             self.consider_activation()
 
-        self.sense_and_act()
-        self.weight = self.priority * self.match_degree
+        if self.active_flag:
+            self.sense_and_act()
+            self.weight = self.priority * self.match_degree
 
     def __str__(self):
         return self.__class__.__name__
