@@ -68,12 +68,17 @@ class Camob(Sensob):
 
     def match_degree(self):
         # dette er bare en lett idé, godt mulig dette vil kreve en mye mer kompleks algoritme
-        base_value = 255
-        color_list = self.get_avg_col()
-        z = color_list[0] / base_value
+        #[101,50,30]
+        #[
+        if self.get_avg_col()[2]>120:
+            return 1
+        return 0
+
+
+
         #her er z da 'match'-graden som en prosent, den ser bare på hvor mye rødt det er,
         #og bryr seg ikke om hva annet et som er i bildet, sort vil f.eks regnes som rødt.
-        return z
+
 
 # rød er f eks
 # [222, 76, 30]
