@@ -64,7 +64,6 @@ class Camob(Sensob):
         b = color_list[1] / base_value[1]
         c = color_list[2] / base_value[2]
         z = (a + b + c) / 3
-        print(z)
         return z
 
     def match_degree_basic(self):
