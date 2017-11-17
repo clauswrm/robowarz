@@ -1,11 +1,13 @@
 from basic_robot.sensobs.camera import Camera
+from basic_robot.sensobs.Sensob import Sensob
 # from imager2 import getpixel
 from time import sleep
 from PIL import Image
 
 
-class Camob:
+class Camob(Sensob):
     def __init__(self, bbcon):
+        super().__init__(None)
         self.bbcon = bbcon
         self.c = Camera()
         self.c.update()
