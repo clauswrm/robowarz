@@ -22,7 +22,9 @@ class Arbitrator:
 
         highest_weight, chosen_behavior = -1, None
 
+        print('Behavior weights:')
         for active_behavior in self.bbcon.active_behaviors:
+            print(active_behavior,active_behavior.weight)
             if active_behavior.weight > highest_weight:
                 chosen_behavior = active_behavior
                 highest_weight = chosen_behavior.weight
