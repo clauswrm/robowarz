@@ -28,13 +28,13 @@ def main():
     proximity = Proximity_Sensob()
 
     bbcon.add_sensob(reflectance)
-    #bbcon.add_sensob(camera)
+    bbcon.add_sensob(camera)
     bbcon.add_sensob(proximity)
 
     forward = Go_Forward(bbcon=bbcon, priority=1)
     adjust = Adjust(bbcon=bbcon, priority=2, reflectob=reflectance)
     halt = Halt(bbcon=bbcon, priority=3, prox_sensob=proximity)
-    #turn = Turn_Around(bbcon=bbcon, priority=4, camera=camera)
+    turn = Turn_Around(bbcon=bbcon, priority=4, camera=camera)
 
     bbcon.add_behavior(forward)
     bbcon.add_behavior(adjust)
