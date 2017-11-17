@@ -39,7 +39,7 @@ def main():
     bbcon.add_behavior(forward)
     bbcon.add_behavior(adjust)
     bbcon.add_behavior(halt)
-    #bbcon.add_behavior(turn)
+    bbcon.add_behavior(turn)
 
     bbcon.activate_behavior(forward)
     bbcon.activate_behavior(adjust)
