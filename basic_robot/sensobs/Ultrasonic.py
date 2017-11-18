@@ -1,18 +1,19 @@
 import RPi.GPIO as GPIO
 import time
 
-class Ultrasonic():
 
+class Ultrasonic:
     def __init__(self):
         self.value = None
-        self.trig_pin = 26 #32
-        self.echo_pin = 11 #31
+        self.trig_pin = 26  # 32
+        self.echo_pin = 11  # 31
         self.setup()
 
     def setup(self):
         GPIO.setmode(GPIO.BOARD)
 
-    def get_value(self):  return self.value
+    def get_value(self):
+        return self.value
 
     def update(self):
         self.value = self.sensor_get_value()
@@ -55,12 +56,11 @@ class Ultrasonic():
         while read_val == 1:
             read_val = GPIO.input(self.echo_pin)
 
-
-        signalon = time.time() # Kan flytte denne ut av loopen dersom det skaper delay og unoyaktighet
+        signalon = time.time()  # Kan flytte denne ut av loopen dersom det skaper delay og unoyaktighet
 
         # Den kalkulerte avstanden
         distance = self.compute_distance(signalon, signaloff)
-        print("totalruntime: "+str(time.time()-sTime))
+        print("totalruntime: " + str(time.time() - sTime))
         # Returnerer distanset til objektet forran sensoren i cm
         return distance
 
@@ -84,5 +84,5 @@ class Ultrasonic():
         # Avstanden til objektet forran sensoren kan vi da finne med formelen: strekning = hastighet * tid
         distance = 344 * timepassed * 100
         # Dette er tur retur distansen. For aa faa distansen en vei deler vi bare paa 2
-        distance = distance/2
+        distance = distance / 2
         return distance

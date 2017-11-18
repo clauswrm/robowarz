@@ -23,13 +23,11 @@ def calculate_error(sens_values):
 
 
 def make_adjustment(error):
-
     if error > 0.1:
         m.turn_right(error * 20)
     elif error < -0.1:
         m.turn_left(-error * 20)
     m.forward()
-
 
 
 def check_for_junction(sens_values):
@@ -40,50 +38,52 @@ def check_for_junction(sens_values):
     x = sum(sens_values)
     print(sens_values)
     print(x)
-    if x >leafThreshold:
+    if x > leafThreshold:
         return 2
     if x < nodeThreshold:
         return 1
     return 0
 
+if __name__ == '__main__':
 
-sens = ReflectanceSensors()
-value = []
+    def main():
+        sens = ReflectanceSensors()
+        value = []
 
+        while True:
+            ZumoButton().wait_for_press()
 
-while True:
-    ZumoButton().wait_for_press()
+            while True:
+                x = int(input("Input: "))
+                m.turn_right(x)
+            ZumoButton().wait_for_press()
 
-    while True:
-        x = int(input("Input: "))
-        m.turn_right(x)
-    ZumoButton().wait_for_press()
+            m.forward()
+            running = True
+            try:
+                while running:
 
-    m.forward()
-    running = True
-    try:
-        while running:
+                    sleep(0.02)
+                    value = sens.update()
+                    error = calculate_error(value)
+                    m.stop()
+                    if check_for_junction(value) == 1:
+                        m.turn_right(95)  # bør nok oftest være 90 grader
+                        m.stop()
+                        sleep(0.25)
+                        value = sens.update()
+                        error = calculate_error(value)
 
-            sleep(0.02)
-            value = sens.update()
-            error = calculate_error(value)
-            m.stop()
-            if check_for_junction(value)==1:
-                m.turn_right(95)#bør nok oftest være 90 grader
+                    elif check_for_junction(value) == 2:
+                        m.turn_right(190)
+                        m.stop()
+                        sleep(0.25)
+                        value = sens.update()
+                        error = calculate_error(value)
+
+                    make_adjustment(error)
+
+            except:
                 m.stop()
-                sleep(0.25)
-                value = sens.update()
-                error = calculate_error(value)
 
-            elif check_for_junction(value)==2:
-                m.turn_right(190)
-                m.stop()
-                sleep(0.25)
-                value = sens.update()
-                error = calculate_error(value)
-
-
-            make_adjustment(error)
-
-    except:
-        m.stop()
+    main()

@@ -4,6 +4,10 @@ from basic_robot.sensobs.Zumo_button import ZumoButton
 
 
 class Motob:
+    """
+    Connects the high level instructions with the lower level
+    motors-class that actually makes the Zumo-robot drive.
+    """
     def __init__(self, motors=Motors()):
         self.motors = motors
         self.value = None  # A holder of the most recent motor recommendation sent to the motob.
@@ -26,21 +30,15 @@ class Motob:
             self.execute_setting[recommendations[0]]()
 
     def turn_right(self, degrees):
-        # TODO: regne på forhold mellom speed og dur
-        # TODO: finne ut hvilken fart som gir mest presis styring
-        # NOTE: Operasjonen varer i "amount" sekunder.
-
         # Denne formelen er basert på speed = 0.5:
-        if degrees != None:
-            dur = degrees / 100 * self.speed
+        dur = degrees / 100 * self.speed
 
         self.motors.right(speed=self.speed, dur=dur)
 
     def turn_left(self, degrees=None):
         # Denne formelen er basert på speed = 0.5. Left turning virker noe kjappere enn right turning.
         # Derav kortere turn duration
-        if degrees != None:
-            dur = degrees / 110 * self.speed
+        dur = degrees / 110 * self.speed
         self.motors.left(speed=self.speed, dur=dur)
 
     def turn_around(self):

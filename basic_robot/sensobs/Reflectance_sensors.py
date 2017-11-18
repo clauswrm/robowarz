@@ -4,13 +4,13 @@ import datetime
 import RPi.GPIO as GPIO
 
 
-class ReflectanceSensors():
+class ReflectanceSensors:
     # The constructor allows students to decide if they want to auto_calibrate
     # the robot, or if they want to hard code the min and max readings of the
     # reflectance sensors
     def __init__(self, auto_calibrate=False, min_reading=100, max_reading=1000):
         self.setup()
-        if (auto_calibrate):
+        if auto_calibrate:
             # Calibration loop should last ~5 seconds
             # Calibrates all sensors
             for i in range(5):
@@ -24,7 +24,6 @@ class ReflectanceSensors():
         print("Calibration results")
         print(self.max_val)
         print(self.min_val)
-
 
     def setup(self):
         # Initialize class variables
@@ -44,7 +43,6 @@ class ReflectanceSensors():
         # Set the mode to GPIO.BOARD
         GPIO.setmode(GPIO.BOARD)
 
-
     def calibrate(self):
         print("calibrating...")
         self.recharge_capacitors()
@@ -57,14 +55,14 @@ class ReflectanceSensors():
             index = self.sensor_indices[pin]
 
             # This is the first iteration
-            if (self.max_val[index] == -1):
+            if self.max_val[index] == -1:
                 self.max_val[index] = time.microseconds
                 self.min_val[index] = time.microseconds
             else:
                 # Store the min and max values seen during calibration
-                if (time.microseconds > self.max_val[index]):
+                if time.microseconds > self.max_val[index]:
                     self.max_val[index] = time.microseconds
-                elif (time.microseconds < self.min_val[index]):
+                elif time.microseconds < self.min_val[index]:
                     self.min_val[index] = time.microseconds
 
             # Print the calculated time in microseconds
@@ -85,7 +83,6 @@ class ReflectanceSensors():
         time = end_time - start_time
         return time
 
-
     def recharge_capacitors(self):
         # Make all sensors an output, and set all to HIGH
         GPIO.setup(self.sensor_inputs, GPIO.OUT)
@@ -93,11 +90,9 @@ class ReflectanceSensors():
         # Wait 5 milliseconds to ensure that the capacitor is fully charged
         sleep(0.005)
 
-
     def reset(self):
         self.updated = False
         self.value = [-1.0, -1.0, -1.0, -1.0, -1.0, -1.0]
-
 
     # Function should return a list of 6 reals between 0 and 1.0 indicating
     # the amount of reflectance picked up by each one.  A high reflectance (near 1) indicates a LIGHT surface, while
@@ -106,11 +101,9 @@ class ReflectanceSensors():
     def get_value(self):
         return self.value
 
-
     def update(self):
         self.compute_value()
         return self.value
-
 
     def compute_value(self):
         self.recharge_capacitors()
@@ -120,13 +113,12 @@ class ReflectanceSensors():
             index = self.sensor_indices[pin]
             self.value[index] = 1 - self.normalize(index, time.microseconds)
 
-
     # Uses the calibrated min and maxs for each sensor to return a normalized
     # value for the @param sensor_time for the given @param index
     def normalize(self, index, sensor_time):
         normalized_value = float(sensor_time) / (self.max_val[index] - self.min_val[index])
-        if (normalized_value > 1.0):
+        if normalized_value > 1.0:
             return 1.0
-        elif (normalized_value < 0.0):
+        elif normalized_value < 0.0:
             return 0.0
         return normalized_value

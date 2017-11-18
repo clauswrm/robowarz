@@ -30,6 +30,7 @@ class IRProximitySensor:
         # Invert the values, so that True means something is close
         return [not read_val_1, not read_val_2]
 
+
 if __name__ == '__main__':
     sensor = IRProximitySensor()
 

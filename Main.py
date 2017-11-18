@@ -5,7 +5,7 @@ from basic_robot.ai.Turn_around import Turn_Around
 from basic_robot.ai.Adjust import Adjust
 from basic_robot.actuation.Motob import Motob
 from basic_robot.sensobs.Zumo_button import ZumoButton
-from basic_robot.sensobs.reflectob import Reflectob
+from basic_robot.sensobs.Reflectob import Reflectob
 from basic_robot.sensobs.Camob import Camob
 from basic_robot.sensobs.Proximity_Sensob import Proximity_Sensob
 from time import sleep

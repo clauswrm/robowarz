@@ -1,7 +1,9 @@
 from basic_robot.sensobs.Irproximity_sensor import IRProximitySensor
 from basic_robot.sensobs.Sensob import Sensob
 
+
 class Proximity_Sensob(Sensob):
+    """ High level class to interface with the Zumo robots IR-proximity sensors """
 
     def __init__(self, ir_sensor: IRProximitySensor = IRProximitySensor()):
         super().__init__(ir_sensor)

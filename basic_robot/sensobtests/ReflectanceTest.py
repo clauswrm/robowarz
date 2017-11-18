@@ -1,26 +1,26 @@
-import reflectance_sensors
+from basic_robot.sensobs.Reflectance_sensors import ReflectanceSensors
+from basic_robot.actuation.Motob import Motob
+from basic_robot.sensobs.Zumo_button import ZumoButton
 from time import sleep
-from Motob import Motob
-from zumo_button import ZumoButton
 
-sens = reflectance_sensors.ReflectanceSensors()
+sens = ReflectanceSensors()
 m = Motob()
 
-def adjustLine(arr):
 
-    if(arr[0] <0.1 or arr[1] < 0.1):
+def adjustLine(err):
+    if err[0] < 0.1 or err[1] < 0.1:
         m.turn_left(5)
 
-    elif(arr[4]<0.1 or arr[5] <0.1):
+    elif err[4] < 0.1 or err[5] < 0.1:
         m.turn_right(5)
-while True:
-    ZumoButton().wait_for_press()
-    m.forward()
+
+
+if __name__ == '__main__':
     while True:
-        arr = sens.update()
-        adjustLine(arr)
+        ZumoButton().wait_for_press()
         m.forward()
-        sleep(0.1)
-
-
-
+        while True:
+            arr = sens.update()
+            adjustLine(arr)
+            m.forward()
+            sleep(0.1)

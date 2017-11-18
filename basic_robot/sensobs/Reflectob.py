@@ -3,6 +3,7 @@ from basic_robot.sensobs.Reflectance_sensors import ReflectanceSensors
 
 
 class Reflectob(Sensob):
+    """ High level class to interface with the Zumo robots reflectance sensors """
     def __init__(self, sensor=ReflectanceSensors()):
         super().__init__(sensor)
         self.error = 0

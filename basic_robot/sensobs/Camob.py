@@ -1,11 +1,11 @@
 from basic_robot.sensobs.Camera import Camera
 from basic_robot.sensobs.Sensob import Sensob
-# from imager2 import getpixel
 from time import sleep
-from PIL import Image
 
 
 class Camob(Sensob):
+    """ High level class to interface with the Zumo robots camera """
+
     def __init__(self, bbcon):
         super().__init__(None)
         self.bbcon = bbcon
@@ -17,10 +17,10 @@ class Camob(Sensob):
             self.c.update()
 
     def take_pic(self):
-        self.c.update.show()
+        self.c.update().show()
 
     def get_pixel(self, x, y):
-        return self.c.image.getpixel((x, y))
+        return self.c.value.getpixel((x, y))
 
     '''iterer over alle pixlene i listen og legger sammen verdiene, deler deretter på antall pixler'''
     ''' returnerer deretter gjenomsnittet av alle verdiene'''
@@ -45,17 +45,20 @@ class Camob(Sensob):
             self.c.update()
             sleep(1)
 
-    def find_red_circle(self):
-        '''Skal finne den røde sirkelen, skriver resten av koden etter jeg har testet noen numeriske verdier'''
-        if True:
-            pass
+    def match_degree(self):
+        # dette er bare en lett idé, godt mulig dette vil kreve en mye mer kompleks algoritme
+        # [101,50,30]
+        # [
+        if self.get_avg_col()[2] > 120:
+            return 1
+        return 0
 
     def match_degree_old(self):
-        '''Denne metoden skal kalkulerer til hvilken grad bildet observert passer med målet.
-        Nøyaktig hvilket tall som blir brukt er svært tentativt.'''
+        """Denne metoden skal kalkulerer til hvilken grad bildet observert passer med målet.
+        Nøyaktig hvilket tall som blir brukt er svært tentativt."""
         # dette er bare en lett idé, godt mulig dette vil kreve en mye mer kompleks algoritme
         base_value = [50, 255, 50]
-        #base_value = [255, 50, 50]
+        # base_value = [255, 50, 50]
         if base_value[0] > 200 or base_value[2] > 200:
             return 0
 
@@ -66,41 +69,15 @@ class Camob(Sensob):
         z = (a + b + c) / 3
         return z
 
-    def match_degree(self):
-        # dette er bare en lett idé, godt mulig dette vil kreve en mye mer kompleks algoritme
-        #[101,50,30]
-        #[
-        if self.get_avg_col()[2]>120:
-            return 1
-        return 0
+        # her er z da 'match'-graden som en prosent, den ser bare på hvor mye rødt det er,
+        # og bryr seg ikke om hva annet et som er i bildet, sort vil f.eks regnes som rødt.
 
-
-
-        #her er z da 'match'-graden som en prosent, den ser bare på hvor mye rødt det er,
-        #og bryr seg ikke om hva annet et som er i bildet, sort vil f.eks regnes som rødt.
-
-
-# rød er f eks
-# [222, 76, 30]
-'''
-im = Image.open('image.jpg'e).convert('RGB')
-print(im.getpixel((1, 1)))
-
-return_list = [0, 0, 0]
-for i in range(0, 96):
-    for j in range(0, 128):
-        for k in range(0, 3):
-            return_list[k] += im.getpixel((j, i))[k]
-for l in range(0, 3):
-    return_list[l] = return_list[l] // (96*128)
-print(return_list)
-'''
 
 if __name__ == '__main__':
     def main():
-        cam = Camob()
+        cam = Camob(None)
         while True:
-            print(cam.match_degree_basic())
+            print(cam.match_degree())
             cam.c.update()
             sleep(1)
 

@@ -1,4 +1,6 @@
 class Sensob:
+    """ A standard superclass that all sensobs inherit from """
+
     def __init__(self, sensor):
         self.sensor = sensor
         self.value = None
