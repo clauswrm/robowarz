@@ -1,5 +1,5 @@
 from basic_robot.sensobs.Sensob import Sensob
-from basic_robot.sensobs.reflectance_sensors import ReflectanceSensors
+from basic_robot.sensobs.Reflectance_sensors import ReflectanceSensors
 
 
 class Reflectob(Sensob):

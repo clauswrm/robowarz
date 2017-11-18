@@ -1,4 +1,4 @@
-from basic_robot.sensobs.camera import Camera
+from basic_robot.sensobs.Camera import Camera
 from basic_robot.sensobs.Sensob import Sensob
 # from imager2 import getpixel
 from time import sleep

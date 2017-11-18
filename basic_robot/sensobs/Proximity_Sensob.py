@@ -1,4 +1,4 @@
-from basic_robot.sensobs.irproximity_sensor import IRProximitySensor
+from basic_robot.sensobs.Irproximity_sensor import IRProximitySensor
 from basic_robot.sensobs.Sensob import Sensob
 
 class Proximity_Sensob(Sensob):
