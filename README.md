@@ -11,14 +11,28 @@ The behavior is based on input form sensors such as camera,
 reflectance, ultrasound and proximity sensors.
 
 This was an assignment for the subject _TDT4113 CS Programming
-Project_ at Norwegian University of Science and Technology.
+Project_ at Norwegian University of Science and Technology
+([NTNU]).
 
 ## Implementation
-Text to be written
+The robot consistes of four different behaviors:
+
+* `Go_forward`
+* `Ajust`
+* `Stop`
+* `Turn_around`
+
+The weight of each behavior depends on output from the sensors
+described in the paragraph above. One behavior then gets its motor
+recommendation sendt forward to the motors based on the arbitrators
+decision.
+
+This happend each time the `BBCON.run_one_timestep()` is excecuted,
+wich is **10 times/sec** in our case.
 
 ![A typical example of behavior-based robotic control][bbrc]
+_A similar BBR model we based our work on._
 
-More text to be written
-
+[NTNU]: https://www.ntnu.edu/ "NTNU homepage"
 [bbrc]: https://raw.githubusercontent.com/clauswrm/robowarz/master/bbr.png
 "A typical example of behavior-based robotic control"
